@@ -15,7 +15,7 @@ export const courseEdges: Edge[] = courseDataJSON.coursesData.flatMap(el =>
       source: prereq.courseCode,
       target: el.courseCode,
       animated: false,
-      markerEnd: { type: 'arrowclosed' }, // Only specify type
+      markerEnd: 'arrowclosed' , // Only specify type
     }))
 );
 
