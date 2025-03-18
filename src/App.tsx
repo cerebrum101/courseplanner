@@ -11,6 +11,7 @@ import {
 } from '@xyflow/react';
 
 import '@xyflow/react/dist/style.css';
+import './styles/index.css';
 
 import { courseNodes, nodeTypes } from './nodes';
 import { courseEdges, edgeTypes } from './edges';
