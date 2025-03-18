@@ -31,7 +31,7 @@ export default function App() {
       edges={edges}
       edgeTypes={edgeTypes}
       onEdgesChange={onEdgesChange}
-      // onConnect={onConnect}
+      onConnect={onConnect}
       fitView
       nodesDraggable={true}
       
