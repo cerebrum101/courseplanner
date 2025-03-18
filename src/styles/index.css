@@ -1,0 +1,24 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.fall-course-node{
+  background-color: #ff7b00;
+  border: dashed 2px black;
+}
+.spring-course-node{
+  background-color: #26ff00;
+}
+.summer-course-node{
+  border: dashed;
+}
+
