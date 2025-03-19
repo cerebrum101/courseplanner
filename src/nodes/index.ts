@@ -3,7 +3,7 @@ import type { NodeTypes } from '@xyflow/react';
 import { PositionLoggerNode } from './PositionLoggerNode';
 import { AppNode } from './types';
 
-import coursesDataJson from '../data/courses.json';
+import coursesDataJson from '../data/completeCourses.json';
 import '../styles/index.css'
 
 export const initialNodes: AppNode[] = [
@@ -27,9 +27,9 @@ export const initialNodes: AppNode[] = [
 
 export const courseNodes: AppNode[] = coursesDataJson.coursesData.map((el, index) => ({
   id: el.courseCode,  // Unique course code as ID
-  position: { x: (index % 4) * 200, y: Math.round(index/4) *100 }, // Spread out nodes horizontally
+  position: { x: (index % 5) * 200, y: Math.round(index/5) *100 }, // Spread out nodes horizontally
   data: { label: el.courseName }, // Display course name as label
-  className: 'fall-course-node',
+  className: '',
 }));
 
 export const nodeTypes = {

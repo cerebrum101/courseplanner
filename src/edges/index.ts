@@ -1,5 +1,6 @@
 import type { Edge, EdgeTypes } from '@xyflow/react';
-import courseDataJSON from '../data/courses.json';
+import courseDataJSON from '../data/completeCourses.json';
+import '../styles/index.css'
 
 export const initialEdges: Edge[] = [
   // { id: 'a->c', source: 'a', target: 'c', animated: true },
