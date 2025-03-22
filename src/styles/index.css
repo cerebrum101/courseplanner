@@ -14,6 +14,7 @@ body,
 .fall-course-node{
   background-color: #ff7b00;
   border: dashed 2px black;
+
 }
 .spring-course-node{
   background-color: #26ff00;
@@ -21,4 +22,6 @@ body,
 .summer-course-node{
   border: dashed;
 }
+
+
 

@@ -1,96 +1,25 @@
 {
-    "courses": [
+    "coursesData": [
       {
-        "courseCode": "WLL 451",
-        "courseName": "The Call of the Evil: Unmasking the Villain(ness) in Popular Culture and Literature",
-        "prerequisites": [
-          { "courseCode": "WLL 201", "courseName": "World Literature I", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 209", "courseName": "Introduction to Translation Studies", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 210", "courseName": "Migrants, Nomads and Exiles", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 211", "courseName": "World Literature II: from the 18th to the 20th century", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 212", "courseName": "Introduction to Poetry", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 213/SPA 211", "courseName": "Introduction to the Hispanic World", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 218", "courseName": "Renaissance in Italy and Beyond", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 219", "courseName": "Myth and Adaptation", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 220", "courseName": "Ancient World Literature (to 1650)", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 221", "courseName": "Creative Writing/Theatre", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 222", "courseName": "Acting: Praxis, Theory and History", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 231", "courseName": "Beginning and Intermediate Playwriting", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 240", "courseName": "Introduction to the Novel", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 241", "courseName": "Survey of Folk Tales", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 243", "courseName": "Western Theatre, Literature and History From Ancient Creece to 1800", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 244", "courseName": "Survey of Nineteenth-Century Russian Literature", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 349", "courseName": "Terrible Perfection: Women in 19th-Century Russian Literature", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 246", "courseName": "Survey of Contemporary Russian Literature and Culture", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 247", "courseName": "Survey of East Asian Literature", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 248", "courseName": "Survey of Soviet Literature and Culture", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 250", "courseName": "From Page to Screen", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 251", "courseName": "Hong Kong Cinema", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 253", "courseName": "Western Theatre Literature and History: 1800-Present", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 254/SPA 254", "courseName": "Superstition, Magical Realism, and Horror in Hispanic Culture", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 255", "courseName": "The Comic Book in Japan and America", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 257", "courseName": "Fan Culture in the Age of Convergence", "gradeRequired": "C+ and above" },
-          { "courseCode": "WLL 291", "courseName": "Theatre Practicum", "gradeRequired": "C+ and above" }
-        ],
+        "courseCode": "MATH 109",
+        "courseName": "Mathematical Discovery",
+        "prerequisites": [],
         "corequisites": [],
-        "antirequisites": []
-      },
-      {
-        "courseCode": "WLL 498",
-        "courseName": "Languages, Linguistics, and Literatures Capstone I",
-        "prerequisites": [
-          "!PERM"
+        "antirequisites": [
+          "MATH 161"
         ],
-        "corequisites": [],
-        "antirequisites": []
-      },
-      {
-        "courseCode": "WLL 171/ANT 175",
-        "courseName": "Introduction to Linguistic Anthropology",
-        "prerequisites": [
-          {
-            "courseCode": "ANT 277/WLL 271",
-            "courseName": "Language and Society",
-            "gradeRequired": "C- and above"
-          }
-        ],
-        "corequisites": [],
-        "antirequisites": []
-      },
-      {
-        "courseCode": "WLL 385/ANT 385",
-        "courseName": "Postcolonial Theory and its Applications in Eurasia",
-        "prerequisites": [
-          {
-            "courseCode": "ANT 110",
-            "courseName": "Introduction to Sociocultural Anthropology",
-            "gradeRequired": "C- and above"
-          },
-          {
-            "courseCode": "SOC 101",
-            "courseName": "Introduction to Sociology",
-            "gradeRequired": "C- and above"
-          },
-          {
-            "courseCode": "WLL 121",
-            "courseName": "Introduction to Cultural Studies",
-            "gradeRequired": "C- and above"
-          },
-          {
-            "courseCode": "WLL 102/PHIL 102",
-            "courseName": "Language, Experience, Culture",
-            "gradeRequired": "C- and above"
-          }
-        ],
-        "corequisites": [],
-        "antirequisites": []
+        "level": 6
       },
       {
         "courseCode": "MATH 161",
         "courseName": "Calculus I",
         "prerequisites": [],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [
+          "(ND-CC) Undeclared SSH",
+          "1 year UG SSH"
+        ],
+        "level": 1
       },
       {
         "courseCode": "MATH 162",
@@ -103,7 +32,13 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [
+          "(ND-CC) Undeclared SSH",
+          "1 year UG SSH Undeclared",
+          "Biological Sciences",
+          "Medical Sciences"
+        ],
+        "level": 2
       },
       {
         "courseCode": "MATH 251",
@@ -116,7 +51,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 2
       },
       {
         "courseCode": "MATH 263",
@@ -129,7 +65,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 3
       },
       {
         "courseCode": "MATH 273",
@@ -148,7 +85,8 @@
             "gradeRequired": "C and above"
           }
         ],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 2
       },
       {
         "courseCode": "MATH 274",
@@ -161,7 +99,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 3
       },
       {
         "courseCode": "MATH 302",
@@ -179,7 +118,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 3
       },
       {
         "courseCode": "MATH 310",
@@ -198,7 +138,8 @@
             "gradeRequired": "C and above"
           }
         ],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 2
       },
       {
         "courseCode": "MATH 321",
@@ -222,7 +163,8 @@
             "gradeRequired": "C- and above"
           }
         ],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 3
       },
       {
         "courseCode": "MATH 322",
@@ -240,7 +182,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 4
       },
       {
         "courseCode": "MATH 323",
@@ -268,7 +211,22 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 4
+      },
+      {
+        "courseCode": "MATH 350",
+        "courseName": "Research Methods",
+        "prerequisites": [
+          {
+            "courseCode": "MATH 321",
+            "courseName": "Probability",
+            "gradeRequired": "C and above"
+          }
+        ],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 4
       },
       {
         "courseCode": "MATH 351",
@@ -292,7 +250,8 @@
             "gradeRequired": "C and above"
           }
         ],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 4
       },
       {
         "courseCode": "MATH 361",
@@ -310,7 +269,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 4
       },
       {
         "courseCode": "MATH 371",
@@ -328,7 +288,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 4
       },
       {
         "courseCode": "MATH 417",
@@ -356,7 +317,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 4
       },
       {
         "courseCode": "MATH 424",
@@ -374,7 +336,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 4
       },
       {
         "courseCode": "MATH 425",
@@ -392,7 +355,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 4
       },
       {
         "courseCode": "MATH 446",
@@ -405,7 +369,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 5
       },
       {
         "courseCode": "MATH 449",
@@ -418,7 +383,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 5
       },
       {
         "courseCode": "MATH 471",
@@ -436,7 +402,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 4
       },
       {
         "courseCode": "MATH 477",
@@ -449,7 +416,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 5
       },
       {
         "courseCode": "MATH 480",
@@ -462,7 +430,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 4
       },
       {
         "courseCode": "MATH 481",
@@ -480,7 +449,8 @@
           }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 5
       },
       {
         "courseCode": "MATH 490",
@@ -489,7 +459,8 @@
           "!PERM"
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 6
       },
       {
         "courseCode": "MATH 491",
@@ -498,7 +469,234 @@
           "!PERM"
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 6
+      },
+      {
+        "courseCode": "MATH 492",
+        "courseName": "Special Topics in Mathematics III",
+        "prerequisites": [
+          "!PERM"
+        ],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 6
+      },
+      {
+        "courseCode": "MATH 499",
+        "courseName": "Capstone Project",
+        "prerequisites": [
+          "!PERM"
+        ],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 6
+      },
+      {
+        "courseCode": "MATH 301",
+        "courseName": "Introduction to Number Theory",
+        "prerequisites": [
+          {
+            "courseCode": "MATH 273",
+            "courseName": "Linear Algebra with Applications",
+            "gradeRequired": "C and above"
+          },
+          {
+            "courseCode": "MATH 251",
+            "courseName": "Discrete Mathematics",
+            "gradeRequired": "C and above"
+          }
+        ],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 3
+      },
+      {
+        "courseCode": "MATH 355",
+        "courseName": "Introduction to Proofs",
+        "prerequisites": [],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 2
+      },
+      {
+        "courseCode": "MATH 403",
+        "courseName": "Abstract Algebra II",
+        "prerequisites": [],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 6
+      },
+      {
+        "courseCode": "MATH 407",
+        "courseName": "Graph Theory",
+        "prerequisites": [
+          {
+            "courseCode": "MATH 301",
+            "courseName": "Introduction to Number Theory",
+            "gradeRequired": "C and above"
+          },
+          {
+            "courseCode": "MATH 251",
+            "courseName": "Discrete Mathematics",
+            "gradeRequired": "C and above"
+          },
+          {
+            "courseCode": "MATH 273",
+            "courseName": "Linear Algebra with Applications",
+            "gradeRequired": "C and above"
+          }
+        ],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 4
+      },
+      {
+        "courseCode": "MATH 411",
+        "courseName": "Linear Programming",
+        "prerequisites": [
+          {
+            "courseCode": "MATH 273",
+            "courseName": "Linear Algebra with Applications",
+            "gradeRequired": "C and above"
+          },
+          {
+            "courseCode": "MATH 263",
+            "courseName": "Calculus III",
+            "gradeRequired": "C and above"
+          }
+        ],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 4
+      },
+      {
+        "courseCode": "MATH 412",
+        "courseName": "Nonlinear Optimization",
+        "prerequisites": [
+          {
+            "courseCode": "MATH 273",
+            "courseName": "Linear Algebra with Applications",
+            "gradeRequired": "C and above"
+          },
+          {
+            "courseCode": "MATH 263",
+            "courseName": "Calculus III",
+            "gradeRequired": "C and above"
+          }
+        ],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 4
+      },
+      {
+        "courseCode": "MATH 423",
+        "courseName": "Actuarial Mathematics II",
+        "prerequisites": [
+          {
+            "courseCode": "MATH 321",
+            "courseName": "Probability",
+            "gradeRequired": "C and above"
+          },
+          {
+            "courseCode": "ECON 211",
+            "courseName": "Economic Statistics",
+            "gradeRequired": "C and above"
+          }
+        ],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 4
+      },
+      {
+        "courseCode": "MATH 440",
+        "courseName": "Regression Analysis",
+        "prerequisites": [
+          {
+            "courseCode": "MATH 322",
+            "courseName": "Mathematical Statistics",
+            "gradeRequired": "C and above"
+          }
+        ],
+        "corequisites": [
+          {
+            "courseCode": "SOC 203",
+            "courseName": "Quantitative Methods in Sociology",
+            "gradeRequired": "C and above"
+          },
+          {
+            "courseCode": "PLS 211",
+            "courseName": "Quantitative Methods",
+            "gradeRequired": "C and above"
+          }
+        ],
+        "antirequisites": [],
+        "level": 5
+      },
+      {
+        "courseCode": "MATH 455",
+        "courseName": "Stochastic Calculus",
+        "prerequisites": [
+          {
+            "courseCode": "MATH 321",
+            "courseName": "Probability",
+            "gradeRequired": "C and above"
+          },
+          {
+            "courseCode": "ECON 211",
+            "courseName": "Economic Statistics",
+            "gradeRequired": "C and above"
+          }
+        ],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 4
+      },
+      {
+        "courseCode": "MATH 460",
+        "courseName": "Topology",
+        "prerequisites": [],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 6
+      },
+      {
+        "courseCode": "MATH 462",
+        "courseName": "Advanced Linear Algebra",
+        "prerequisites": [
+          {
+            "courseCode": "MATH 251",
+            "courseName": "Discrete Mathematics",
+            "gradeRequired": "C and above"
+          },
+          {
+            "courseCode": "MATH 273",
+            "courseName": "Linear Algebra with Applications",
+            "gradeRequired": "C and above"
+          }
+        ],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 3
+      },
+      {
+        "courseCode": "MATH 482",
+        "courseName": "Fourier Analysis",
+        "prerequisites": [
+          {
+            "courseCode": "MATH 263",
+            "courseName": "Calculus III",
+            "gradeRequired": "C and above"
+          },
+          {
+            "courseCode": "MATH 274",
+            "courseName": "Introduction to Differential Equations",
+            "gradeRequired": "C and above"
+          }
+        ],
+        "corequisites": [],
+        "antirequisites": [],
+        "level": 4
       },
       {
         "courseCode": "MATH 497",
@@ -507,106 +705,8 @@
           "!PERM"
         ],
         "corequisites": [],
-        "antirequisites": []
-      },
-      {
-        "courseCode": "PHYS 161",
-        "courseName": "Physics I for Scientists and Engineers with Laboratory",
-        "prerequisites": [
-          {
-            "courseCode": "MATH 161",
-            "courseName": "Calculus I",
-            "gradeRequired": "C and above"
-          },
-          {
-            "courseCode": "PHYS 171",
-            "courseName": "Physics I for Physics Majors with Laboratory",
-            "gradeRequired": "C- and above"
-          }
-        ],
-        "corequisites": [],
-        "antirequisites": []
-      },
-      {
-        "courseCode": "PHYS 201",
-        "courseName": "Introductory Astronomy I",
-        "prerequisites": [],
-        "corequisites": [],
-        "antirequisites": []
-      },
-      {
-        "courseCode": "PHYS 221",
-        "courseName": "Classical Mechanics I",
-        "prerequisites": [
-          {
-            "courseCode": "PHYS 162",
-            "courseName": "Physics II for Scientists and Engineers with Laboratory",
-            "gradeRequired": "C- and above"
-          },
-          {
-            "courseCode": "PHYS 172",
-            "courseName": "Physics II for Physics Majors with Laboratory",
-            "gradeRequired": "C- and above"
-          },
-          {
-            "courseCode": "MATH 273",
-            "courseName": "Linear Algebra with Applications",
-            "gradeRequired": "C- and above"
-          }
-        ],
-        "corequisites": [],
-        "antirequisites": []
-      },
-      {
-        "courseCode": "PHYS 261",
-        "courseName": "Modern Physics with laboratory",
-        "prerequisites": [
-          {
-            "courseCode": "MATH 162",
-            "courseName": "Calculus II",
-            "gradeRequired": "C- and above"
-          },
-          {
-            "courseCode": "PHYS 152",
-            "courseName": "Introductory Physics II with Lab",
-            "gradeRequired": "C- and above"
-          },
-          {
-            "courseCode": "PHYS 162",
-            "courseName": "Physics II for Scientists and Engineers with Laboratory",
-            "gradeRequired": "C- and above"
-          },
-          {
-            "courseCode": "PHYS 172",
-            "courseName": "Physics II for Physics Majors with Laboratory",
-            "gradeRequired": "C- and above"
-          }
-        ],
-        "corequisites": [],
-        "antirequisites": []
-      },
-      {
-        "courseCode": "PHYS 315",
-        "courseName": "Mathematical Methods of Physics",
-        "prerequisites": [
-          {
-            "courseCode": "PHYS 172",
-            "courseName": "Physics II for Physics Majors with Laboratory",
-            "gradeRequired": "C- and above"
-          },
-          {
-            "courseCode": "PHYS 162",
-            "courseName": "Physics II for Scientists and Engineers with Laboratory",
-            "gradeRequired": "C- and above"
-          },
-          {
-            "courseCode": "MATH 274",
-            "courseName": "Introduction to Differential Equations",
-            "gradeRequired": "C- and above"
-          }
-        ],
-        "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "level": 6
       }
     ]
   }

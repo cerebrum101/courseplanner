@@ -3,16 +3,10 @@
       {
         "courseCode": "MATH 109",
         "courseName": "Mathematical Discovery",
-        "prerequisites": [
-          {
-            "courseCode": "MATH 161",
-            "courseName": "Calculus I",
-            "gradeRequired": "C- and above"
-          }
-        ],
+        "prerequisites": [],
         "corequisites": [],
         "antirequisites": [
-          "(ND-CC) Undeclared"
+          "MATH 161"
         ]
       },
       {
