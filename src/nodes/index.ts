@@ -84,19 +84,33 @@ function createTreeNodes(courses: Course[]): AppNode[] {
     });
   });
 
+
   // Build final AppNode array.
   const nodes: AppNode[] = courses.map(course => {
+    const labelValue = `[${course.courseCode}] ${course.courseName}` 
     const pos = positions.get(course.courseCode) || { x: 0, y: 0 };
     return {
       id: course.courseCode,
       position: pos,
-      data: { label: course.courseName },
+      data: { label: labelValue },
       className: '',
     };
   });
 
   return nodes;
 }
+
+// function createLabelValue(code, name) { 
+
+//   return (
+//     <>
+
+
+
+//   </>)
+// }
+
+
 
 // ---------- Build Final Nodes & Export ----------
 const data: CoursesData = coursesDataJson;

@@ -2,108 +2,56 @@ import type { Edge, EdgeTypes } from '@xyflow/react';
 import courseDataJSON from '../data/completeCourses1.json';
 import '../styles/index.css';
 
-// A function to retrieve the "base" HSL color for each level.
-function getBaseHSL(level?: number): { h: number; s: number; l: number } {
-  switch (level) {
-    case 2:
-      // Pastel green
-      return { h: 120, s: 60, l: 80 };
-    case 3:
-      // Pastel blue
-      return { h: 210, s: 60, l: 80 };
-    case 4:
-      // Pastel magenta
-      return { h: 320, s: 60, l: 80 };
-    case 5:
-      // Pastel yellow
-      return { h: 50, s: 80, l: 80 };
-    case 6:
-      // Pastel gray
-      return { h: 0, s: 0, l: 80 };
-    default:
-      // A default light gray
-      return { h: 0, s: 0, l: 70 };
-  }
-}
+// A larger, more diverse Tailwind-inspired palette for each level.
+// The arrays have 7 colors (from very light to very dark).
+const tailwindPalette: Record<number, string[]> = {
+  2: ["#DCFCE7", "#BBF7D0", "#86EFAC", "#4ADE80", "#22C55E", "#16A34A", "#15803D"],
+  3: ["#DBEAFE", "#BFDBFE", "#93C5FD", "#60A5FA", "#3B82F6", "#2563EB", "#1D4ED8"],
+  4: ["#FEE2E2", "#FECACA", "#FCA5A5", "#F87171", "#EF4444", "#DC2626", "#B91C1C"],
+  5: ["#FEF3C7", "#FDE68A", "#FCD34D", "#FBBF24", "#F59E0B", "#D97706", "#B45309"],
+  6: ["#F3F4F6", "#E5E7EB", "#D1D5DB", "#9CA3AF", "#6B7280", "#4B5563", "#374151"]
+};
 
-/**
- * Interpolate a color in HSL space:
- * - We keep Hue and Saturation the same.
- * - We vary Lightness from baseL to (baseL - lightnessRange).
- *   For example, if baseL=80 and lightnessRange=30,
- *   the darkest is 50 (80 - 30).
- *
- * @param baseH hue, saturation, and lightness
- * @param index position from left to right in the level
- * @param total total nodes in that level
- * @param lightnessRange how many percentage points of lightness to reduce
- */
-function interpolateHSL(
-  baseH: number,
-  baseS: number,
-  baseL: number,
-  index: number,
-  total: number,
-  lightnessRange: number
-): string {
-  if (total <= 1) {
-    // no interpolation if there's only one node
-    return `hsl(${baseH}, ${baseS}%, ${baseL}%)`;
-  }
-  // factor goes from 0 on the left to 1 on the right
-  const factor = index / (total - 1);
-  // new lightness
-  const newL = baseL - factor * lightnessRange;
-  return `hsl(${baseH}, ${baseS}%, ${newL}%)`;
-}
-
-// Build a mapping: level → array of courseCodes (in JSON order).
+// Build a mapping: level → array of courseCodes in JSON order.
+// This is used to determine left-to-right order for each level.
 const levelOrder: Record<number, string[]> = {};
 courseDataJSON.coursesData.forEach(course => {
   const lvl = course.level ?? 1;
-  if (!levelOrder[lvl]) {
-    levelOrder[lvl] = [];
-  }
+  if (!levelOrder[lvl]) levelOrder[lvl] = [];
   levelOrder[lvl].push(course.courseCode);
 });
 
-// You can tweak this range if you want less or more variation
-const lightnessRange = 30;
-
-export const initialEdges: Edge[] = [];
 
 export const courseEdges: Edge[] = courseDataJSON.coursesData.flatMap(el =>
   el.prerequisites
-    .filter(prereq => typeof prereq === 'object' && prereq !== null)
+    .filter(prereq => typeof prereq === "object" && prereq !== null)
     .map(prereq => {
       const lvl = el.level ?? 1;
-      const baseHSL = getBaseHSL(lvl);
-
-      // Identify the position of this course in its level
+      // Pick the palette for this level.
+      const palette = tailwindPalette[lvl] || ["#AAAAAA"];
+      // Get the order array for this level.
       const orderForLevel = levelOrder[lvl] || [];
+      // Determine the index of this course in its level (based on JSON order).
       const index = orderForLevel.indexOf(el.courseCode);
       const total = orderForLevel.length;
+      // If there is more than one course, map the left-to-right order (0 to total-1)
+      // into an index into our palette (0 to palette.length-1).
+      const paletteIndex = total > 1 ? Math.round((index / (total - 1 )) * (palette.length - 1 )) : 0;
+      const strokeColor = palette[paletteIndex];
 
-      // Interpolate the final color
-      const strokeColor = interpolateHSL(
-        baseHSL.h,
-        baseHSL.s,
-        baseHSL.l,
-        index,
-        total,
-        lightnessRange
-      );
+
 
       return {
         id: `${prereq.courseCode}->${el.courseCode}`,
         source: prereq.courseCode,
         target: el.courseCode,
         animated: false,
-        markerEnd: 'arrowclosed',
-        type: 'bezier',
+        markerEnd: "arrowclosed",
+        type: "bezier",
         style: { stroke: strokeColor },
       };
     })
 );
+
 
 export const edgeTypes = {} satisfies EdgeTypes;
