@@ -1,4 +1,3 @@
-import react from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AllCoursesView from './AllCoursesView.tsx'
 import UserPlanPage from './PersonalPage.js'

@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import Dashboard from './components/Dashboard';
+import { useEffect, useMemo, useState } from 'react';
+import Dashboard from './components/Dashboard.jsx'
 import {
   ReactFlow,
   Background,
@@ -33,9 +33,9 @@ interface Course {
   antirequisites: any[];
 }
 
-interface CoursesData {
-  coursesData: Course[];
-}
+// interface CoursesData {
+//   coursesData: Course[];
+// }
 
 export default function UserPlanPage() {
   const [addedCardsCodes, setAddedCardsCodes] = useState<string[]>([]);
