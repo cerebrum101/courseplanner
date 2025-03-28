@@ -19,8 +19,9 @@ import { courseEdges, edgeTypes } from './edges';
 
 
 export default function AllCoursesView() {
-  const [nodes, , onNodesChange] = useNodesState(courseNodes);
+  const [nodes, setNodes , onNodesChange] = useNodesState(courseNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(courseEdges);
+
   const onConnect: OnConnect = useCallback(
     (connection) => setEdges((edges) => addEdge(connection, edges)),
     [setEdges]

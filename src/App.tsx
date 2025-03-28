@@ -28,8 +28,8 @@ export default function App() {
     return (
     <BrowserRouter> 
       <Routes>
-        <Route path="/" element={<AllCoursesView />} />
-        <Route path="personal" element={<UserPlanPage />} />
+        <Route path="/all" element={<AllCoursesView />} />
+        <Route path="/" element={<UserPlanPage />} />
       </Routes>
     </BrowserRouter>
   );

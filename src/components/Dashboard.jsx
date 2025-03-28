@@ -7,30 +7,33 @@ import '../styles/index.css';
 
 function Card({ code, name, credits, isAdded, toggleButton }) {
     return (
-      <div className="card p-4 my-5 bg-gray-800 border-gray-600 border-2 rounded flex-col">
+<div className="card p-4 bg-gray-800 border border-gray-600 rounded-lg flex flex-col space-y-2 shadow-md hover:shadow-lg transition-shadow">
         <div className="card-info">
-          <p className="card-code text-blue-600 font-mono">{code}</p>
-          <p className="card-name text-white">{name}</p>
-          <p className="card-credits text-yellow-400">{credits}</p>
+        <p className="card-code text-blue-400 font-mono font-semibold">{code}</p>
+<p className="card-name text-white font-medium">{name}</p>
+<p className="card-credits text-yellow-300 font-mono">{credits}</p>
         </div>
         <button 
-          className={`px-4 py-2 mt-3 w-auto h-10 rounded transition-colors ${isAdded ? 'bg-red-500 hover:bg-red-600' : 'bg-green-500 hover:bg-green-600'}`}
-          onClick={() => toggleButton(code)}
-        //   code={code}
-          aria-label={isAdded ? `Remove ${name}` : `Add ${name}`}
-          aria-pressed={isAdded}
-        >
-          {isAdded ? 'Remove' : 'Add'}
-        </button>
+    className={`px-4 py-2 w-full rounded-lg transition-colors font-medium ${
+        isAdded 
+            ? 'bg-red-500 hover:bg-red-600 text-white' 
+            : 'bg-green-500 hover:bg-green-600 text-white'
+    }`}
+    onClick={() => toggleButton(code)}
+    aria-label={isAdded ? `Remove ${name}` : `Add ${name}`}
+    aria-pressed={isAdded}
+>
+    {isAdded ? 'Remove' : 'Add'}
+</button>
       </div>
     );
   }
 
-export default function Dashboard({addedCards, setAddedCards}) {
+export default function Dashboard({addedCardsCodes, setAddedCardsCodes}) {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
 
-    // const [addedCards, setAddedCards] = useState([])
+
 
 
     function handleButtonClick() {
@@ -38,12 +41,12 @@ export default function Dashboard({addedCards, setAddedCards}) {
     }
 
     function handleToggleCard(code) {
-          if (!(addedCards.includes(code)))
+          if (!(addedCardsCodes.includes(code)))
           {
-            setAddedCards([...addedCards, code])
+            setAddedCardsCodes([...addedCardsCodes, code])
           }
           else {
-            setAddedCards(addedCards.filter(courseCode => courseCode !== code))
+            setAddedCardsCodes(addedCardsCodes.filter(courseCode => courseCode !== code))
           }
 
     }
@@ -59,7 +62,7 @@ export default function Dashboard({addedCards, setAddedCards}) {
             code={el.courseCode}
             name={el.courseName}
             credits={el.credits || "6/8"}  
-            isAdded={ addedCards.includes((el.courseCode))}
+            isAdded={ addedCardsCodes.includes((el.courseCode))}
             toggleButton={handleToggleCard}
         />
     ));
@@ -67,26 +70,30 @@ export default function Dashboard({addedCards, setAddedCards}) {
 
     return (
         <>
-            <button className={`button absolute top-5 right-20 h-20 w-10 bg-gray-400 z-10 rounded border-black border-1 text-3xl transition-all duration-300 overflow-hidden ${ isCollapsed ? "right-[20px]" : "right-[calc(20%+2.5rem)]" }`} 
-                onClick={handleButtonClick}>
-                    {isCollapsed ? '‹' : '›'}
-                    
-            </button>
+            <button 
+    className={`fixed top-5 right-20 h-16 w-8 bg-gray-600 z-10 rounded-lg border border-gray-500 text-3xl text-white flex items-center justify-center transition-all duration-300 hover:bg-gray-500 ${
+        isCollapsed ? "right-[20px]" : "right-[calc(20%+2.5rem)]"
+    }`} 
+    onClick={handleButtonClick}
+>
+    {isCollapsed ? '‹' : '›'}
+</button>
 
-            <div className={`dashboard h-screen absolute bg-gray-900 right-0 flex-col z-9 justify-items-center transition-all duration-300 overflow-hidden ${ isCollapsed ? "w-0" : "min-w-[20%] w-1/5" }`}>
-            <div className="wrapper h-full w-[80%]">
-            <input 
-                type="text" 
-                className="input w-full h-[2rem] mx-auto mt-[2rem] rounded z-10 bg-white"
-                onChange={(e) => setSearchTerm(e.target.value)}
-                value={searchTerm}
-                id="course-search"
-            />
+            <div className={`dashboard h-screen fixed bg-gray-900 right-0 flex flex-col z-9 transition-all duration-300 overflow-hidden max-w-[360px] ${isCollapsed ? "w-0" : "min-w-[20%]  w-1/5 "}`}>
+              <div className="wrapper h-full w-[80%] mx-auto px-2">            
+                <input 
+                    type="text" 
+                    className="input w-full h-10 mx-auto mt-8 rounded-lg z-10 bg-gray-100 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    value={searchTerm}
+                    id="course-search"
+                    placeholder="Search courses..."
+                  />
 
                 <div className="cards flex-col align-middle w-full max-h-none">  
             
 
-                    <div className="cards flex-col w-full overflow-y-scroll max-h-[calc(100vh-5rem)] ">
+                <div className="cards flex flex-col w-full overflow-y-auto max-h-[calc(100vh-8rem)] mt-4 space-y-4 pb-4">
                         {filteredCards}
                     </div>
 
