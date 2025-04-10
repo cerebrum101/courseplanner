@@ -305,16 +305,33 @@ export default function UserPlanPage() {
           return;
         }
 
-        if(addedCardsCodes.includes(antireq)){
-          newEdges.push({
-            id: `${antireq}->${courseCode}`,
-            source: antireq,
-            target: courseCode,
-            type: 'default',
-            style: { stroke: 'red' }, // red for antireqs
-            label: "ANTIREQ",
-            sourceHandle: 'bottom-source',
-            targetHandle: 'bottom-target',
+        if(typeof antireq === 'string') {
+          if(addedCardsCodes.includes(antireq)){
+            newEdges.push({
+              id: `${antireq}->${courseCode}`,
+              source: antireq,
+              target: courseCode,
+              type: 'default',
+              style: { stroke: 'red' }, // red for antireqs
+              label: "ANTIREQ",
+              sourceHandle: 'bottom-source',
+              targetHandle: 'bottom-target',
+            });
+          }
+        } else if (typeof antireq === 'object' && 'courses' in antireq) {
+          antireq.courses.forEach(courseCode => {
+            if(addedCardsCodes.includes(courseCode)){
+              newEdges.push({
+                id: `${courseCode}->${courseCode}`,
+                source: courseCode,
+                target: courseCode,
+                type: 'default',
+                style: { stroke: 'red' },
+                label: "ANTIREQ",
+                sourceHandle: 'bottom-source',
+                targetHandle: 'bottom-target',
+              });
+            }
           });
         }
       });
