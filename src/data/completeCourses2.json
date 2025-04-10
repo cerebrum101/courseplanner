@@ -5,63 +5,72 @@
         "courseName": "Mathematical Discovery",
         "prerequisites": [],
         "corequisites": [],
-        "antirequisites": ["MATH161"]
+        "antirequisites": ["MATH161"],
+        "credits": 6
       },
       {
         "courseCode": "MATH161",
         "courseName": "Calculus I",
         "prerequisites": [],
         "corequisites": [],
-        "antirequisites": ["(ND-CC) Undeclared SSH", "1 year UG SSH"]
+        "antirequisites": [],
+        "credits": 8
       },
       {
         "courseCode": "MATH162",
         "courseName": "Calculus II",
         "prerequisites": ["MATH161"],
         "corequisites": [],
-        "antirequisites": ["(ND-CC) Undeclared SSH", "1 year UG SSH Undeclared", "Biological Sciences", "Medical Sciences"]
+        "antirequisites": [],
+        "credits": 8
       },
       {
         "courseCode": "MATH251",
         "courseName": "Discrete Mathematics",
         "prerequisites": ["MATH161"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH263",
         "courseName": "Calculus III",
         "prerequisites": ["MATH162"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 8
       },
       {
         "courseCode": "MATH273",
         "courseName": "Linear Algebra with Applications",
         "prerequisites": ["MATH161"],
         "corequisites": ["MATH162"],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 8
       },
       {
         "courseCode": "MATH274",
         "courseName": "Introduction to Differential Equations",
         "prerequisites": ["MATH162"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH302",
         "courseName": "Abstract Algebra I",
         "prerequisites": ["MATH273", "MATH251"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH310",
         "courseName": "Applied Statistical Methods",
         "prerequisites": ["MATH161"],
         "corequisites": ["MATH321"],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH321",
@@ -70,7 +79,8 @@
         "corequisites": [
           { "type": "or", "courses": ["ECON211", "PLS211"] }
         ],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH322",
@@ -79,154 +89,176 @@
           { "type": "or", "courses": ["MATH321", "ECON211"] }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH323",
         "courseName": "Actuarial Mathematics I",
         "prerequisites": ["MATH321", "ECON211", "MATH162", "MATH310"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH350",
         "courseName": "Research Methods",
         "prerequisites": ["MATH321"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH351",
         "courseName": "Numerical Methods with Applications",
         "prerequisites": ["MATH274", "MATH263"],
         "corequisites": ["ENG202"],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH361",
         "courseName": "Real Analysis I",
         "prerequisites": ["MATH263", "MATH251"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH371",
         "courseName": "Introduction to Mathematical Biology",
         "prerequisites": ["MATH273", "MATH274"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH417",
         "courseName": "Cryptography",
         "prerequisites": ["MATH273", "MATH251", "MATH301", "MATH355"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH424",
         "courseName": "Mathematical Finance",
         "prerequisites": ["MATH321", "ECON211"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH425",
         "courseName": "Stochastic Processes",
         "prerequisites": ["MATH321", "ECON211"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH446",
         "courseName": "Time Series Analysis",
         "prerequisites": ["MATH322"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH449",
         "courseName": "Statistical Programming",
         "prerequisites": ["MATH322"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH471",
         "courseName": "Nonlinear Differential Equations",
         "prerequisites": ["MATH273", "MATH274"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH477",
         "courseName": "Applied Finite Element Methods",
         "prerequisites": ["MATH351"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH480",
         "courseName": "Complex Analysis",
         "prerequisites": ["MATH263"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH481",
         "courseName": "Partial Differential Equations",
         "prerequisites": ["MATH274", "MATH480"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH490",
         "courseName": "Special Topics in Mathematics I",
         "prerequisites": ["!PERM"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH491",
         "courseName": "Special Topics in Mathematics II",
         "prerequisites": ["!PERM"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH492",
         "courseName": "Special Topics in Mathematics III",
         "prerequisites": ["!PERM"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH499",
         "courseName": "Capstone Project",
         "prerequisites": ["!PERM"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH301",
         "courseName": "Introduction to Number Theory",
         "prerequisites": ["MATH273", "MATH251"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH355",
         "courseName": "Introduction to Proofs",
         "prerequisites": [],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH403",
         "courseName": "Abstract Algebra II",
         "prerequisites": ["MATH302"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH407",
@@ -236,28 +268,32 @@
           "MATH273"
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH411",
         "courseName": "Linear Programming",
         "prerequisites": ["MATH273", "MATH263"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH412",
         "courseName": "Nonlinear Optimization",
         "prerequisites": ["MATH273", "MATH263"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH423",
         "courseName": "Actuarial Mathematics II",
         "prerequisites": ["MATH321", "ECON211"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH440",
@@ -266,7 +302,8 @@
         "corequisites": [
           { "type": "or", "courses": ["SOC203", "PLS211"] }
         ],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH455",
@@ -275,35 +312,40 @@
           { "type": "or", "courses": ["MATH321", "ECON211"] }
         ],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH460",
         "courseName": "Topology",
         "prerequisites": ["MATH361"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH462",
         "courseName": "Advanced Linear Algebra",
         "prerequisites": ["MATH251", "MATH273"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH482",
         "courseName": "Fourier Analysis",
         "prerequisites": ["MATH263", "MATH274"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       },
       {
         "courseCode": "MATH497",
         "courseName": "Directed Study in Mathematics I",
         "prerequisites": ["!PERM"],
         "corequisites": [],
-        "antirequisites": []
+        "antirequisites": [],
+        "credits": 6
       }
     ]
   }

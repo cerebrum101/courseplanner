@@ -18,13 +18,13 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
         if (Course.prerequisites) {
         Course.prerequisites.forEach( el => {
             if( el.type === "or") {
-                prereqs += el.courses.join(' OR ');
+                prereqs += el.courses.join(' [OR] ');
             } 
             if (el === "!PERM") {
                 prereqs = `Instructor's Permission Required. Registration through Add Course form only!`;
             }
             else {
-                prereqs = prereqs?  `${prereqs} AND ${el}` : `${el}`;
+                prereqs = prereqs?  `${prereqs} [AND] ${el}` : `${el}`;
             }
         });
     }
@@ -32,15 +32,15 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
         if (Course.corequisites) { 
         Course.corequisites.forEach( el => {
             if( el.type === "or") {
-                coreqs += el.courses.join(' OR ');
+                coreqs += el.courses.join(' [OR] ');
             } 
             else {
-                coreqs = coreqs?  `${coreqs} AND ${el}` : `${el}`;
+                coreqs = coreqs?  `${coreqs} [AND] ${el}` : `${el}`;
             }
         });
     }
 
-    antireqs = Course.antirequisites ? Course.antirequisites.join(' AND ') : '';
+    antireqs = Course.antirequisites ? Course.antirequisites.join(' [OR] ') : '';
 
         return [prereqs, coreqs, antireqs];
     }
@@ -86,6 +86,10 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
                                     <p className="flex flex-col">
                                         <span className="text-sm text-gray-400">Antirequisites:</span>
                                         <span>{handleCourseReqs(selctedCourseData)[2] || 'None'}</span>
+                                    </p>
+                                    <p className="flex flex-col">
+                                        <span className="text-sm text-gray-400">Credits:</span>
+                                        <span>{selctedCourseData.credits} ECTS</span>
                                     </p>
                                 </div>
                             </div>

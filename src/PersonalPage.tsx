@@ -1,14 +1,18 @@
-import { useEffect, useMemo, useState, useCallback } from 'react';
+import { useEffect, useMemo, useState, useCallback, ChangeEventHandler } from 'react';
 import Dashboard from './components/Dashboard.jsx'
 import {
   ReactFlow,
   Background,
   Controls,
+  ReactFlowProvider,
   useNodesState,
   useEdgesState,
   Node,
   Edge,
   MarkerType,
+  ColorMode,
+  Panel,
+  useReactFlow,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import './styles/index.css';
@@ -29,6 +33,9 @@ const nodeTypes = {
   Course: CourseNodes
 };
 
+const flowKey = 'example-flow';
+
+const getNodeId = () => `randomnode_${+new Date()}`;
 // interface CoursePrereq {
 //   courseCode: string;
 //   courseName: string;
@@ -41,6 +48,7 @@ interface Course {
   prerequisites: (string | { type: string; courses: string[] })[];
   corequisites: (string | { type: string; courses: string[] })[];
   antirequisites: string[];
+  credits : number;
 }
 
 // interface CoursesData {
@@ -98,6 +106,35 @@ export default function UserPlanPage() {
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
   const [currCourse, setCurrCourse] = useState('');
   const [isDashboardVisible, setIsDashboardVisible] = useState(false);
+  const [colorMode, setColorMode] = useState<ColorMode>('light');
+  // const [rfInstance, setRfInstance] = useState(null);
+  // const { setViewport } = useReactFlow();
+
+  const onChange: ChangeEventHandler<HTMLSelectElement> = (evt) => {
+    setColorMode(evt.target.value as ColorMode);
+  };
+
+  // const onSave = useCallback(() => {
+  //   if (rfInstance) {
+  //     const flow = rfInstance.toObject();
+  //     localStorage.setItem(flowKey, JSON.stringify(flow));
+  //   }
+  // }, [rfInstance]);
+
+  // const onRestore = useCallback(() => {
+  //   const restoreFlow = async () => {
+  //     const flow = JSON.parse(localStorage.getItem(flowKey));
+ 
+  //     if (flow) {
+  //       const { x = 0, y = 0, zoom = 1 } = flow.viewport;
+  //       setNodes(flow.nodes || []);
+  //       setEdges(flow.edges || []);
+  //       setViewport({ x, y, zoom });
+  //     }
+  //   };
+ 
+  //   restoreFlow();
+  // }, [setNodes, setViewport]);
 
   const handleNodesChange = useCallback((changes: any) => {
     onNodesChange(changes);
@@ -300,6 +337,8 @@ export default function UserPlanPage() {
       fitView
       nodesDraggable={true}
       nodeTypes={nodeTypes}
+      colorMode={colorMode}
+      // onInit={setRfInstance}
     >
       <Background />
       <Controls />
@@ -312,6 +351,21 @@ export default function UserPlanPage() {
         addedCardsCodes={addedCardsCodes}
         setAddedCardsCodes={setAddedCardsCodes}
       />
+      <Panel position="bottom-left">
+      <select 
+          onChange={onChange} 
+          data-testid="colormode-select"
+          className="ml-10 bg-gray-600 text-white rounded-md px-2 py-1"
+        >
+          <option value="dark">dark</option>
+          <option value="light">light</option>
+          <option value="system">system</option>
+        </select>
+      </Panel>
+      {/* <Panel position="bottom-left">
+        <button onClick={onSave}>save</button>
+        <button onClick={onRestore}>restore</button>
+      </Panel> */}
     </ReactFlow>
   );
 }

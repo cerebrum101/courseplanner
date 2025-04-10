@@ -54,13 +54,15 @@ export default function Dashboard({addedCardsCodes, setAddedCardsCodes}) {
 
     const filteredCards = courseDataJSON.coursesData
     .filter(course => 
-        course.courseCode.toLowerCase().includes(searchTerm.toLowerCase()))
+        course.courseCode.toLowerCase().includes(searchTerm.toLowerCase()) || 
+        course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) 
+    )
     .map((el) => (
         <Card 
             key={el.courseCode}
             code={el.courseCode}
             name={el.courseName}
-            credits="6/8 ECTS"
+            credits={`${el.credits} ECTS`}
             isAdded={addedCardsCodes.includes(el.courseCode)}
             toggleButton={handleToggleCard}
         />
@@ -86,7 +88,7 @@ export default function Dashboard({addedCardsCodes, setAddedCardsCodes}) {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     value={searchTerm}
                     id="course-search"
-                    placeholder="Search courses..."
+                    placeholder="Course name or code"
                   />
 
                 <div className="cards flex-col align-middle w-full max-h-none">  
