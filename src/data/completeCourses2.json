@@ -68,18 +68,16 @@
         "courseCode": "MATH310",
         "courseName": "Applied Statistical Methods",
         "prerequisites": ["MATH161"],
-        "corequisites": ["MATH321"],
-        "antirequisites": [],
+        "corequisites": [],
+        "antirequisites": ["MATH321"],
         "credits": 6
       },
       {
         "courseCode": "MATH321",
         "courseName": "Probability",
         "prerequisites": ["MATH162"],
-        "corequisites": [
-          { "type": "or", "courses": ["ECON211", "PLS211"] }
-        ],
-        "antirequisites": [],
+        "corequisites": [],
+        "antirequisites": [{ "type": "or", "courses": ["ECON211", "PLS211"] }],
         "credits": 6
       },
       {
@@ -112,8 +110,8 @@
         "courseCode": "MATH351",
         "courseName": "Numerical Methods with Applications",
         "prerequisites": ["MATH274", "MATH263"],
-        "corequisites": ["ENG202"],
-        "antirequisites": [],
+        "corequisites": [],
+        "antirequisites": ["ENG202"],
         "credits": 6
       },
       {
@@ -199,8 +197,8 @@
       {
         "courseCode": "MATH481",
         "courseName": "Partial Differential Equations",
-        "prerequisites": ["MATH274", "MATH480"],
-        "corequisites": [],
+        "prerequisites": ["MATH274"],
+        "corequisites": ["MATH480"],
         "antirequisites": [],
         "credits": 6
       },
@@ -299,10 +297,10 @@
         "courseCode": "MATH440",
         "courseName": "Regression Analysis",
         "prerequisites": ["MATH322"],
-        "corequisites": [
+        "corequisites": [],
+        "antirequisites": [
           { "type": "or", "courses": ["SOC203", "PLS211"] }
         ],
-        "antirequisites": [],
         "credits": 6
       },
       {
@@ -342,6 +340,38 @@
       {
         "courseCode": "MATH497",
         "courseName": "Directed Study in Mathematics I",
+        "prerequisites": ["!PERM"],
+        "corequisites": [],
+        "antirequisites": [],
+        "credits": 6
+      },
+      {
+        "courseCode": "MATH456",
+        "courseName": "Introduction to Lie Groups and Representations",
+        "prerequisites": ["MATH361", "MATH273", "MATH274"],
+        "corequisites": [],
+        "antirequisites": [],
+        "credits": 6
+      },
+      {
+        "courseCode": "MATH461",
+        "courseName": "Real Analysis II",
+        "prerequisites": ["MATH361"],
+        "corequisites": [],
+        "antirequisites": [],
+        "credits": 6
+      },
+      {
+        "courseCode": "MATH476",
+        "courseName": "Numerical Methods for Partial Differential Equations",
+        "prerequisites": ["MATH351", "MATH481"],
+        "corequisites": [],
+        "antirequisites": [],
+        "credits": 6
+      },
+      {
+        "courseCode": "MATH498",
+        "courseName": "Directed Study in Mathematics II",
         "prerequisites": ["!PERM"],
         "corequisites": [],
         "antirequisites": [],

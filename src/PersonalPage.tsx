@@ -47,8 +47,8 @@ interface Course {
   courseName: string;
   prerequisites: (string | { type: string; courses: string[] })[];
   corequisites: (string | { type: string; courses: string[] })[];
-  antirequisites: string[];
-  credits : number;
+  antirequisites: (string | { type: string; courses: string[] })[];
+  credits: number;
 }
 
 // interface CoursesData {
@@ -109,7 +109,6 @@ export default function UserPlanPage() {
   const [colorMode, setColorMode] = useState<ColorMode>('light');
   // const [rfInstance, setRfInstance] = useState(null);
   // const { setViewport } = useReactFlow();
-
   const onChange: ChangeEventHandler<HTMLSelectElement> = (evt) => {
     setColorMode(evt.target.value as ColorMode);
   };

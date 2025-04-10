@@ -40,7 +40,16 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
         });
     }
 
-    antireqs = Course.antirequisites ? Course.antirequisites.join(' [OR] ') : '';
+    if (Course.antirequisites) { 
+        Course.antirequisites.forEach( el => {
+            if( el.type === "or") {
+                antireqs += el.courses.join(' [OR] ');
+            } 
+            else {
+                antireqs = antireqs?  `${antireqs} [AND] ${el}` : `${el}`;
+            }
+        });
+    }
 
         return [prereqs, coreqs, antireqs];
     }
