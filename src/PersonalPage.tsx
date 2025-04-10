@@ -4,7 +4,7 @@ import {
   ReactFlow,
   Background,
   Controls,
-  ReactFlowProvider,
+  // ReactFlowProvider,
   useNodesState,
   useEdgesState,
   Node,
@@ -12,7 +12,7 @@ import {
   MarkerType,
   ColorMode,
   Panel,
-  useReactFlow,
+  // useReactFlow,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import './styles/index.css';
@@ -33,9 +33,9 @@ const nodeTypes = {
   Course: CourseNodes
 };
 
-const flowKey = 'example-flow';
+// const flowKey = 'example-flow';
 
-const getNodeId = () => `randomnode_${+new Date()}`;
+// const getNodeId = () => `randomnode_${+new Date()}`;
 // interface CoursePrereq {
 //   courseCode: string;
 //   courseName: string;
