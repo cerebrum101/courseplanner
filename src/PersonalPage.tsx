@@ -29,11 +29,11 @@ const nodeTypes = {
   Course: CourseNodes
 };
 
-interface CoursePrereq {
-  courseCode: string;
-  courseName: string;
-  gradeRequired: string;
-}
+// interface CoursePrereq {
+//   courseCode: string;
+//   courseName: string;
+//   gradeRequired: string;
+// }
 
 interface Course {
   courseCode: string;
@@ -47,50 +47,50 @@ interface Course {
 //   coursesData: Course[];
 // }
 
-const initialNodes = [
-  {
-    id: 'welcome-1',
-    type: 'default',
-    data: { label: 'made by @ataywork' },
-    position: { x: 0, y: -100 },
-    style: {
-      background: 'transparent',
-      border: 'none',
-      color: '#9CA3AF', // gray-400
-      fontSize: '0.875rem' // text-sm
-    }
-  },
-  {
-    id: 'welcome-2',
-    type: 'default',
-    data: { label: 'Search and add courses from the Dashboard' },
-    position: { x: -200, y: 0 },
-    style: {
-      backgroundColor: 'rgba(31, 41, 55, 0.9)', // gray-900 with opacity
-      color: 'white',
-      border: '1px solid rgba(75, 85, 99, 0.5)', // gray-600 border
-      borderRadius: '0.5rem', // rounded-lg
-      padding: '0.75rem 1rem', // p-3
-      width: '280px',
-      fontSize: '0.875rem' // text-sm
-    }
-  },
-  {
-    id: 'welcome-3',
-    type: 'default',
-    data: { label: 'Prerequisites will automatically connect' },
-    position: { x: 0, y: 100 },
-    style: {
-      backgroundColor: 'rgba(31, 41, 55, 0.9)',
-      color: 'white',
-      border: '1px solid rgba(75, 85, 99, 0.5)',
-      borderRadius: '0.5rem',
-      padding: '0.75rem 1rem',
-      width: '280px',
-      fontSize: '0.875rem'
-    }
-  }
-];
+// const initialNodes = [
+//   {
+//     id: 'welcome-1',
+//     type: 'default',
+//     data: { label: 'made by @ataywork' },
+//     position: { x: 0, y: -100 },
+//     style: {
+//       background: 'transparent',
+//       border: 'none',
+//       color: '#9CA3AF', // gray-400
+//       fontSize: '0.875rem' // text-sm
+//     }
+//   },
+//   {
+//     id: 'welcome-2',
+//     type: 'default',
+//     data: { label: 'Search and add courses from the Dashboard' },
+//     position: { x: -200, y: 0 },
+//     style: {
+//       backgroundColor: 'rgba(31, 41, 55, 0.9)', // gray-900 with opacity
+//       color: 'white',
+//       border: '1px solid rgba(75, 85, 99, 0.5)', // gray-600 border
+//       borderRadius: '0.5rem', // rounded-lg
+//       padding: '0.75rem 1rem', // p-3
+//       width: '280px',
+//       fontSize: '0.875rem' // text-sm
+//     }
+//   },
+//   {
+//     id: 'welcome-3',
+//     type: 'default',
+//     data: { label: 'Prerequisites will automatically connect' },
+//     position: { x: 0, y: 100 },
+//     style: {
+//       backgroundColor: 'rgba(31, 41, 55, 0.9)',
+//       color: 'white',
+//       border: '1px solid rgba(75, 85, 99, 0.5)',
+//       borderRadius: '0.5rem',
+//       padding: '0.75rem 1rem',
+//       width: '280px',
+//       fontSize: '0.875rem'
+//     }
+//   }
+// ];
 
 export default function UserPlanPage() {
   const [addedCardsCodes, setAddedCardsCodes] = useState<string[]>([]);
