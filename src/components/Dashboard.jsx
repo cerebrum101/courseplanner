@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import courseDataJSON from '../data/completeCourses1.json';
+import courseDataJSON from '../data/completeCourses2.json';
 
 import '../styles/index.css';
 
@@ -54,15 +54,14 @@ export default function Dashboard({addedCardsCodes, setAddedCardsCodes}) {
 
     const filteredCards = courseDataJSON.coursesData
     .filter(course => 
-        course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) ||  
         course.courseCode.toLowerCase().includes(searchTerm.toLowerCase()))
     .map((el) => (
         <Card 
             key={el.courseCode}
             code={el.courseCode}
             name={el.courseName}
-            credits={el.credits || "6/8"}  
-            isAdded={ addedCardsCodes.includes((el.courseCode))}
+            credits="6/8 ECTS"
+            isAdded={addedCardsCodes.includes(el.courseCode)}
             toggleButton={handleToggleCard}
         />
     ));

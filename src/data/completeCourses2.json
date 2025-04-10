@@ -1,0 +1,310 @@
+{
+    "coursesData": [
+      {
+        "courseCode": "MATH109",
+        "courseName": "Mathematical Discovery",
+        "prerequisites": [],
+        "corequisites": [],
+        "antirequisites": ["MATH161"]
+      },
+      {
+        "courseCode": "MATH161",
+        "courseName": "Calculus I",
+        "prerequisites": [],
+        "corequisites": [],
+        "antirequisites": ["(ND-CC) Undeclared SSH", "1 year UG SSH"]
+      },
+      {
+        "courseCode": "MATH162",
+        "courseName": "Calculus II",
+        "prerequisites": ["MATH161"],
+        "corequisites": [],
+        "antirequisites": ["(ND-CC) Undeclared SSH", "1 year UG SSH Undeclared", "Biological Sciences", "Medical Sciences"]
+      },
+      {
+        "courseCode": "MATH251",
+        "courseName": "Discrete Mathematics",
+        "prerequisites": ["MATH161"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH263",
+        "courseName": "Calculus III",
+        "prerequisites": ["MATH162"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH273",
+        "courseName": "Linear Algebra with Applications",
+        "prerequisites": ["MATH161"],
+        "corequisites": ["MATH162"],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH274",
+        "courseName": "Introduction to Differential Equations",
+        "prerequisites": ["MATH162"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH302",
+        "courseName": "Abstract Algebra I",
+        "prerequisites": ["MATH273", "MATH251"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH310",
+        "courseName": "Applied Statistical Methods",
+        "prerequisites": ["MATH161"],
+        "corequisites": ["MATH321"],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH321",
+        "courseName": "Probability",
+        "prerequisites": ["MATH162"],
+        "corequisites": [
+          { "type": "or", "courses": ["ECON211", "PLS211"] }
+        ],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH322",
+        "courseName": "Mathematical Statistics",
+        "prerequisites": [
+          { "type": "or", "courses": ["MATH321", "ECON211"] }
+        ],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH323",
+        "courseName": "Actuarial Mathematics I",
+        "prerequisites": ["MATH321", "ECON211", "MATH162", "MATH310"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH350",
+        "courseName": "Research Methods",
+        "prerequisites": ["MATH321"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH351",
+        "courseName": "Numerical Methods with Applications",
+        "prerequisites": ["MATH274", "MATH263"],
+        "corequisites": ["ENG202"],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH361",
+        "courseName": "Real Analysis I",
+        "prerequisites": ["MATH263", "MATH251"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH371",
+        "courseName": "Introduction to Mathematical Biology",
+        "prerequisites": ["MATH273", "MATH274"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH417",
+        "courseName": "Cryptography",
+        "prerequisites": ["MATH273", "MATH251", "MATH301", "MATH355"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH424",
+        "courseName": "Mathematical Finance",
+        "prerequisites": ["MATH321", "ECON211"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH425",
+        "courseName": "Stochastic Processes",
+        "prerequisites": ["MATH321", "ECON211"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH446",
+        "courseName": "Time Series Analysis",
+        "prerequisites": ["MATH322"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH449",
+        "courseName": "Statistical Programming",
+        "prerequisites": ["MATH322"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH471",
+        "courseName": "Nonlinear Differential Equations",
+        "prerequisites": ["MATH273", "MATH274"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH477",
+        "courseName": "Applied Finite Element Methods",
+        "prerequisites": ["MATH351"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH480",
+        "courseName": "Complex Analysis",
+        "prerequisites": ["MATH263"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH481",
+        "courseName": "Partial Differential Equations",
+        "prerequisites": ["MATH274", "MATH480"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH490",
+        "courseName": "Special Topics in Mathematics I",
+        "prerequisites": ["!PERM"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH491",
+        "courseName": "Special Topics in Mathematics II",
+        "prerequisites": ["!PERM"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH492",
+        "courseName": "Special Topics in Mathematics III",
+        "prerequisites": ["!PERM"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH499",
+        "courseName": "Capstone Project",
+        "prerequisites": ["!PERM"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH301",
+        "courseName": "Introduction to Number Theory",
+        "prerequisites": ["MATH273", "MATH251"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH355",
+        "courseName": "Introduction to Proofs",
+        "prerequisites": [],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH403",
+        "courseName": "Abstract Algebra II",
+        "prerequisites": ["MATH302"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH407",
+        "courseName": "Graph Theory",
+        "prerequisites": [
+          { "type": "or", "courses": ["MATH301", "MATH251"] },
+          "MATH273"
+        ],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH411",
+        "courseName": "Linear Programming",
+        "prerequisites": ["MATH273", "MATH263"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH412",
+        "courseName": "Nonlinear Optimization",
+        "prerequisites": ["MATH273", "MATH263"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH423",
+        "courseName": "Actuarial Mathematics II",
+        "prerequisites": ["MATH321", "ECON211"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH440",
+        "courseName": "Regression Analysis",
+        "prerequisites": ["MATH322"],
+        "corequisites": [
+          { "type": "or", "courses": ["SOC203", "PLS211"] }
+        ],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH455",
+        "courseName": "Stochastic Calculus",
+        "prerequisites": [
+          { "type": "or", "courses": ["MATH321", "ECON211"] }
+        ],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH460",
+        "courseName": "Topology",
+        "prerequisites": ["MATH361"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH462",
+        "courseName": "Advanced Linear Algebra",
+        "prerequisites": ["MATH251", "MATH273"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH482",
+        "courseName": "Fourier Analysis",
+        "prerequisites": ["MATH263", "MATH274"],
+        "corequisites": [],
+        "antirequisites": []
+      },
+      {
+        "courseCode": "MATH497",
+        "courseName": "Directed Study in Mathematics I",
+        "prerequisites": ["!PERM"],
+        "corequisites": [],
+        "antirequisites": []
+      }
+    ]
+  }
+  
