@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback, ChangeEventHandler } from 'react';
+import { useState, ChangeEventHandler } from 'react';
 import Dashboard from '../molecules/Dashboard.jsx'
 import {
   ReactFlow,
@@ -16,7 +16,7 @@ import '../styles/index.css';
 import CourseNodes from '../atoms/components/CourseNode.jsx';
 import CourseDashboard from '../organisms/CourseDashboard.jsx';
 import ColorModeSelector from '../atoms/components/ColorModeSelector';
-import { Course, CourseNode } from '../atoms/types/course.types';
+import { CourseNode } from '../atoms/types/course.types';
 import { useCourseMap } from '../hooks/useCourseMap';
 import { useCourseNodes } from '../hooks/useCourseNodes';
 import { useCourseEdges } from '../hooks/useCourseEdges';

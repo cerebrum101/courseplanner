@@ -1,4 +1,4 @@
-import { Node, Edge } from '@xyflow/react';
+import { Node } from '@xyflow/react';
 
 export type CourseNode = Node & {
   data: {
