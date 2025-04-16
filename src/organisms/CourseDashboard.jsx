@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import courseDataJSON from '../data/completeCourses2.json';
+import courseDataJSON from '../data/courseData.json';
 
-import '../styles/index.css';
+import '.././styles/index.css';
 
 export default function CourseDashboard({ selctedCourseData, isVisible, onToggleVisibility }) {
     function handleButtonClick() {
@@ -60,20 +60,20 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
         <>
         <button 
             className={`fixed top-5 left-20 h-16 w-8 bg-gray-600 z-10 rounded-lg border border-gray-500 text-3xl text-white flex items-center justify-center transition-all duration-300 hover:bg-gray-500 ${
-                !isVisible ? "left-[20px]" : "left-[calc(20%+2.5rem)]"
+                !isVisible ? "left-[20px]" : "left-[calc(25%+2.5rem)]"
             }`} 
             onClick={handleButtonClick}
         >
             {!isVisible ? '›' :  '‹' }
         </button>
 
-            <div className={`dashboard h-[80%] rounded-br-2xl fixed bg-gray-900 left-0 flex flex-col z-9 transition-all duration-300 overflow-hidden max-w-[360px] text-white ${!isVisible ? "w-0" : "min-w-[20%]  w-1/5 "}`}>
-                <div className="wrapper h-full w-[80%] mx-auto px-2">            
+            <div className={`dashboard h-[80%] rounded-br-2xl fixed bg-gray-900 left-0 flex flex-col z-9 transition-all duration-300 overflow-hidden max-w-[360px] text-white ${!isVisible ? "w-0" : "min-w-[25%] "}`}>
+                <div className="wrapper h-full w-[80%] mx-auto px-2 flex flex-col">            
                     <h1 className="mt-6 text-2xl font-semibold text-white mb-6 text-center">Course Details</h1>
 
-                    <div className="cards flex-col align-middle w-full max-h-none">  
+                    <div className="cards flex-col align-middle w-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">  
                         {selctedCourseData ? (
-                            <div className="bg-gray-800 p-4 rounded-lg border border-gray-600 space-y-3">
+                            <div className="bg-gray-800 p-4 mb-4 rounded-lg border border-gray-600 space-y-3">
                                 <div className="flex flex-col space-y-2">
                                     <p className="text-blue-400 font-mono font-semibold">
                                         {selctedCourseData.courseCode}
@@ -83,22 +83,42 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
                                     </p>
                                 </div>
                                 
-                                <div className="space-y-2 text-gray-300">
+                                <div className="space-y-2 text-gray-300 mb-2">
+                                    <p className="flex flex-col">
+                                        <span className="text-sm text-gray-400">School:</span>
+                                        <span>{selctedCourseData.SCHOOL}</span>
+                                    </p>
+                                    <p className="flex flex-col">
+                                        <span className="text-sm text-gray-400">Department:</span>
+                                        <span>{selctedCourseData.DEPARTMENT}</span>
+                                    </p>
+                                    {/* <p className="flex flex-col">
+                                        <span className="text-sm text-gray-400">Academic Level:</span>
+                                        <span>{selctedCourseData.ACADEMICLEVEL}</span>
+                                    </p> */}
+                                    {/* <p className="flex flex-col">
+                                        <span className="text-sm text-gray-400">Term:</span>
+                                        <span>{selctedCourseData.TERMNAME}</span>
+                                    </p> */}
                                     <p className="flex flex-col">
                                         <span className="text-sm text-gray-400">Prerequisites:</span>
-                                        <span>{handleCourseReqs(selctedCourseData)[0] || 'None'}</span>
+                                        <span>{selctedCourseData.PREREQ || 'None'}</span>
                                     </p>
                                     <p className="flex flex-col">
                                         <span className="text-sm text-gray-400">Corequisites:</span>
-                                        <span>{handleCourseReqs(selctedCourseData)[1] || 'None'}</span>
+                                        <span>{selctedCourseData.COREQ || 'None'}</span>
                                     </p>
                                     <p className="flex flex-col">
                                         <span className="text-sm text-gray-400">Antirequisites:</span>
-                                        <span>{handleCourseReqs(selctedCourseData)[2] || 'None'}</span>
+                                        <span>{selctedCourseData.ANTIREQ || 'None'}</span>
                                     </p>
                                     <p className="flex flex-col">
                                         <span className="text-sm text-gray-400">Credits:</span>
                                         <span>{selctedCourseData.credits} ECTS</span>
+                                    </p>
+                                    <p className="flex flex-col">
+                                        <span className="text-sm text-gray-400">Description:</span>
+                                        <span className="text-sm">{selctedCourseData.SHORTDESC}</span>
                                     </p>
                                 </div>
                             </div>

@@ -1,7 +1,9 @@
 import React, { memo, useState } from 'react';
 import { Handle, Position } from '@xyflow/react';
+import '../../styles/index.css';
 
-import CourseDashboard from './CourseDashboard';
+
+import CourseDashboard from '../../organisms/CourseDashboard';
 
 
 
@@ -13,7 +15,6 @@ const CourseNode = memo(({ data }) => {
       data.onNodeClick(data.label);
     }
   }
-
 
   return (
     <div className="border bg-white shadow-md rounded-md p-4 text-center relative min-w-[150px]"

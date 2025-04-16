@@ -1,8 +1,8 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import courseDataJSON from '../data/completeCourses2.json';
+import React, { useState } from 'react';
+import { useEffect } from "react";
+import courseDataJSON from '../data/courseData.json';
 
-import '../styles/index.css';
+import '.././styles/index.css';
 
 
 function Card({ code, name, credits, isAdded, toggleButton }) {

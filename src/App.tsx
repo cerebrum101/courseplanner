@@ -1,6 +1,8 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AllCoursesView from './AllCoursesView.tsx'
-import UserPlanPage from './PersonalPage.js'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import AllCoursesView from './archive/all-courses-view/AllCoursesView.tsx'
+import UserPlanPage from './pages/PersonalPage.tsx'
+import './styles/index.css';
+
 
 
 // import {
@@ -25,11 +27,11 @@ export default function App() {
 
 
     return (
-    <BrowserRouter> 
+    <Router> 
       <Routes>
-        <Route path="/all" element={<AllCoursesView />} />
+        {/* <Route path="/all" element={<AllCoursesView />} /> */}
         <Route path="/" element={<UserPlanPage />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
