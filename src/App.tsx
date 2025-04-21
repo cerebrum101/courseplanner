@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import AllCoursesView from './archive/all-courses-view/AllCoursesView.tsx'
 import UserPlanPage from './pages/PersonalPage.tsx'
+import Hero from './pages/Hero.tsx'
 import './styles/index.css';
 
 
@@ -30,7 +31,8 @@ export default function App() {
     <Router> 
       <Routes>
         {/* <Route path="/all" element={<AllCoursesView />} /> */}
-        <Route path="/" element={<UserPlanPage />} />
+        <Route path="/planner" element={<UserPlanPage />} />
+        <Route path="/" element={<Hero />} />
       </Routes>
     </Router>
   );
