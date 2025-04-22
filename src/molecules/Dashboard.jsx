@@ -80,7 +80,7 @@ export default function Dashboard({addedCardsCodes, setAddedCardsCodes}) {
     {isCollapsed ? '‹' : '›'}
 </button>
 
-            <div className={`dashboard h-screen fixed bg-gray-900 right-0 flex flex-col z-9 transition-all duration-300 overflow-hidden max-w-[360px] ${isCollapsed ? "w-0" : "min-w-[20%]  w-1/5 "}`}>
+            <div className={`dashboard h-[90%] fixed rounded-bl-2xl bg-gray-900 right-0 flex flex-col z-9 transition-all duration-300 overflow-hidden max-w-[360px] ${isCollapsed ? "w-0" : "min-w-[20%]  w-1/5 "}`}>
               <div className="wrapper h-full w-[80%] mx-auto px-2">            
                 <input 
                     type="text" 
@@ -94,7 +94,7 @@ export default function Dashboard({addedCardsCodes, setAddedCardsCodes}) {
                 <div className="cards flex-col align-middle w-full max-h-none">  
             
 
-                <div className="cards flex flex-col w-full overflow-y-auto max-h-[calc(100vh-8rem)] mt-4 space-y-4 pb-4">
+                <div className="cards flex flex-col w-full overflow-y-auto max-h-[calc(100vh-8rem)] mt-4 space-y-4 pb-12">
                         {filteredCards}
                     </div>
 

@@ -28,7 +28,7 @@ export interface Course {
   ANTIREQ?: string;
   courseCode: string;
   courseName: string;
-  credits: string;
+  credits: number;
   prerequisites: (string | { type: string; courses: string[] })[];
   corequisites: (string | { type: string; courses: string[] })[];
   antirequisites: (string | { type: string; courses: string[] })[];

@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
           <div className="flex flex-col space-y-6 md:space-y-8 items-center md:items-start text-center md:text-left">
             {/* Logo and Title */}
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
-              <img src="/logo.JPG" alt="Course Planner Logo" className="h-14 sm:h-16" />
+              <img src="/logo.png" alt="Course Planner Logo" className="h-14 sm:h-16" />
               <h1 className="text-4xl lg:text-5xl font-bold tracking-tight">
                 Course Planner
               </h1>

@@ -8,7 +8,7 @@ export const createPrerequisiteEdges = (
 ): Edge[] => {
   const edges: Edge[] = [];
 
-  course.prerequisites.forEach(prereq => {
+  course.prerequisites?.forEach(prereq => {
     if (typeof prereq === 'string') {
       // Skip instructors approval only !PERM courses
       if (prereq.startsWith('!')) {
@@ -71,7 +71,7 @@ export const createCorequisiteEdges = (
 ): Edge[] => {
   const edges: Edge[] = [];
 
-  course.corequisites.forEach(coreq => {
+  course.corequisites?.forEach(coreq => {
     // Handle string corequisites
     if (typeof coreq === 'string') {
       if (addedCardsCodes.includes(coreq)) {
@@ -121,7 +121,7 @@ export const createAntirequisiteEdges = (
 ): Edge[] => {
   const edges: Edge[] = [];
 
-  course.antirequisites.forEach(antireq => {
+  course.antirequisites?.forEach(antireq => {
     if(!antireq){
       return;
     }

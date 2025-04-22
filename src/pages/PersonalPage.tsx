@@ -1,4 +1,4 @@
-import { useState, ChangeEventHandler } from 'react';
+import { useState, ChangeEventHandler, useEffect, useCallback } from 'react';
 import Dashboard from '../molecules/Dashboard.jsx'
 import {
   ReactFlow,
@@ -22,6 +22,7 @@ import { useCourseNodes } from '../hooks/useCourseNodes';
 import { useCourseEdges } from '../hooks/useCourseEdges';
 import { useNodeClick } from '../hooks/useNodeClick';
 import { useNodesChange } from '../hooks/useNodesChange';
+import { saveFlow, loadFlow, resetFlow } from '../utils/saveCourses';
 
 const nodeTypes = {
   Course: CourseNodes
@@ -41,16 +42,54 @@ export default function UserPlanPage() {
 
   const courseMap = useCourseMap();
   const handleNodeClick = useNodeClick(currCourse, setCurrCourse, setIsDashboardVisible);
-  const handleNodesChange = useNodesChange(onNodesChange, setAddedCardsCodes);
   
+  // Modified handleNodesChange to properly handle course state
+  const handleNodesChange = useCallback((changes: any[]) => {
+    onNodesChange(changes);
+    
+    // Update addedCardsCodes based on node changes
+    const removedNodes = changes
+      .filter(change => change.type === 'remove')
+      .map(change => change.id);
+    
+    if (removedNodes.length > 0) {
+      setAddedCardsCodes(prev => {
+        const newCodes = prev.filter(code => !removedNodes.includes(code));
+        return newCodes;
+      });
+    }
+  }, [onNodesChange]);
+
   // Update nodes when addedCardsCodes changes
-  useCourseNodes(addedCardsCodes, nodes, courseMap, handleNodeClick, setNodes);
+  useCourseNodes(addedCardsCodes, nodes, courseMap, handleNodeClick, setNodes, setEdges);
   
   // Generate edges based on prerequisites and corequisites
   useCourseEdges(addedCardsCodes, courseMap, setEdges);
 
   const handleToggleDashboard = () => {
     setIsDashboardVisible(prev => !prev);
+  };
+
+  // Custom handlers for the buttons
+  const handleSaveClick = () => {
+    saveFlow(nodes, edges);
+  };
+
+  const handleRestoreClick = () => {
+    const savedFlow = loadFlow();
+    if (savedFlow.nodes.length > 0) {
+      const courses = savedFlow.nodes.map(node => node.id);
+      setAddedCardsCodes(courses);
+      setNodes(savedFlow.nodes as CourseNode[]);
+      setEdges(savedFlow.edges);
+    }
+  };
+
+  const handleResetClick = () => {
+    resetFlow();
+    setAddedCardsCodes([]);
+    setNodes([]);
+    setEdges([]);
   };
 
   return (
@@ -77,6 +116,28 @@ export default function UserPlanPage() {
       />
       <Panel position="bottom-left">
         <ColorModeSelector onChange={onChange} value={colorMode} />
+      </Panel>
+      <Panel position="bottom-right" className="flow-controls">
+        <div className="flex gap-2">
+          <button
+            onClick={handleSaveClick}
+            className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+          >
+            Save Flow
+          </button>
+          <button
+            onClick={handleRestoreClick}
+            className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
+          >
+            Restore Flow
+          </button>
+          <button
+            onClick={handleResetClick}
+            className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition-colors"
+          >
+            Reset Flow
+          </button>
+        </div>
       </Panel>
     </ReactFlow>
   );
