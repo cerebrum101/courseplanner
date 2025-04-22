@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { CourseNode } from '../atoms/types/course.types';
-import { Node } from '@xyflow/react';
+// import { Node } from '@xyflow/react';
 import { saveFlow, loadFlow, resetFlow } from '../utils/saveCourses';
 
 export const useCourseNodes = (

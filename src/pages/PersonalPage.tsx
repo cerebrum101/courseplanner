@@ -1,4 +1,4 @@
-import { useState, ChangeEventHandler, useEffect, useCallback } from 'react';
+import { useState, ChangeEventHandler, useCallback } from 'react';
 import Dashboard from '../molecules/Dashboard.jsx'
 import {
   ReactFlow,
@@ -21,7 +21,7 @@ import { useCourseMap } from '../hooks/useCourseMap';
 import { useCourseNodes } from '../hooks/useCourseNodes';
 import { useCourseEdges } from '../hooks/useCourseEdges';
 import { useNodeClick } from '../hooks/useNodeClick';
-import { useNodesChange } from '../hooks/useNodesChange';
+// import { useNodesChange } from '../hooks/useNodesChange';
 import { saveFlow, loadFlow, resetFlow } from '../utils/saveCourses';
 
 const nodeTypes = {
