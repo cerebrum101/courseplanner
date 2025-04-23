@@ -58,20 +58,28 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
     
     return (
         <>
-        <button 
-            className={`fixed top-5 left-20 h-16 w-8 bg-gray-600 z-10 rounded-lg border border-gray-500 text-3xl text-white flex items-center justify-center transition-all duration-300 hover:bg-gray-500 ${
-                !isVisible ? "left-[20px]" : "left-[calc(25%+2.5rem)]"
-            }`} 
-            onClick={handleButtonClick}
-        >
-            {!isVisible ? '›' :  '‹' }
-        </button>
+            <button 
+                className={`${!isVisible ? "block" : "hidden"} absolute left-[20px] top-[30px] z-20 h-[40px] w-[40px] bg-gray-600 rounded-lg border border-gray-500 text-3xl text-white flex items-center justify-center transition-all duration-300 hover:bg-gray-500 text-center`}
+                onClick={handleButtonClick}
+                aria-label={!isVisible ? "Expand course details" : "Collapse course details"}
+            >
+                {!isVisible ? '›' : '‹'}
+            </button>
 
-            <div className={`dashboard h-[80%] rounded-br-2xl fixed bg-gray-900 left-0 flex flex-col z-9 transition-all duration-300 overflow-hidden max-w-[360px] text-white ${!isVisible ? "w-0" : "min-w-[25%] "}`}>
+            <div className={`dashboard h-[80%] rounded-br-2xl fixed bg-gray-900 left-0 flex flex-col z-9 transition-all duration-300 overflow-hidden max-w-[360px] text-white ${!isVisible ? "w-0" : "min-w-[25%]"}`}>
                 <div className="wrapper h-full w-[80%] mx-auto px-2 flex flex-col">            
-                    <h1 className="mt-6 text-2xl font-semibold text-white mb-6 text-center">Course Details</h1>
+                    <div className="flex items-center justify-between mt-6 px-2">
+                        <h1 className="text-2xl font-semibold text-white">Course Details</h1>
+                        <button 
+                            className="h-[40px] w-[40px] bg-gray-600 rounded-lg border border-gray-500 text-3xl text-white flex items-center justify-center transition-all duration-300 hover:bg-gray-500"
+                            onClick={handleButtonClick}
+                            aria-label={!isVisible ? "Expand course details" : "Collapse course details"}
+                        >
+                            {!isVisible ? '›' : '‹'}
+                        </button>
+                    </div>
 
-                    <div className="cards flex-col align-middle w-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800">  
+                    <div className="cards flex-col align-middle w-full overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800 mt-3">  
                         {selctedCourseData ? (
                             <div className="bg-gray-800 p-4 mb-4 rounded-lg border border-gray-600 space-y-3">
                                 <div className="flex flex-col space-y-2">
