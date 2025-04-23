@@ -37,9 +37,9 @@ const Hero: React.FC = () => {
      { title: "Search & Discover", description: "Find courses using the search bar in the planner." },
      { title: "Visual Planning", description: "Drag and drop courses onto your semester canvas." },
      { title: "Interactive Canvas", description: "Scroll and resize your planning canvas freely." },
-     { title: "Course Details", description: "Instantly view prerequisites, corequisites, and antirequisites." },
-     { title: "Validation", description: "Check for prerequisite conflicts and credit limits." },
+     { title: "Course Details", description: "Instantly view prerequisites, corequisites, antirequisites and credits" },
      { title: "Theme Options", description: "Switch between light and dark modes for comfort." },
+     { title: "Save and Restore", description: "Save selected courses and restore them later. Works after reloading." },
   ];
 
 
