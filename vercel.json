@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/((?!api/|\\._next/|\\.well-known/|[\\w-]+\\.\\w+).*)/?",
+      "destination": "/"
+    }
+  ]
+} 
