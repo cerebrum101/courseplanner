@@ -1871,7 +1871,11 @@
       "COREQ": "",
       "ANTIREQ": "",
       "prerequisites": [
-        "PHYS 172",
+        {
+          "type": "or",
+          "courses": ["PHYS 162", "PHYS 172"]
+        }
+        ,
         "MATH 273"
       ],
       "corequisites": [],
@@ -4431,17 +4435,11 @@
       "CCDISPLAY": "1",
       "TERMNAME": "Spring 2025",
       "RNO": "156",
-      "PREREQ": "BIOL 110 Modern Biology I (107) (C and above) OR BIOL 110 Modern Biology I (1070) (C and above)",
+      "PREREQ": "OR BIOL 110 Modern Biology I (1070) (C and above)",
       "COREQ": "",
       "ANTIREQ": "",
       "prerequisites": [
-        {
-          "type": "or",
-          "courses": [
-            "BIOL 110",
-            "BIOL 110"
-          ]
-        }
+        "BIOL 110"
       ],
       "corequisites": [],
       "antirequisites": [],
@@ -7687,7 +7685,7 @@
       "TERMNAME": "Spring 2025",
       "RNO": "288",
       "PREREQ": "BIOL 110 Modern Biology I (1070) (C and above) OR BIOL 110L Modern Biology I Laboratory (5448) (C and above)",
-      "COREQ": "BIOL 120 Modern Biology II (1195) (C and above)",
+      "COREQ": "",
       "ANTIREQ": "",
       "prerequisites": [
         {
@@ -15126,7 +15124,7 @@
       "CCDISPLAY": "1",
       "TERMNAME": "Spring 2025",
       "RNO": "177",
-      "PREREQ": "(BIOL 110 Modern Biology I (107) (C and above) OR BIOL 110 Modern Biology I (1070) (C and above)) AND BIOL 120 Modern Biology II (1195) (C and above)",
+      "PREREQ": "BIOL 110 Modern Biology I (1070) (C and above)) AND BIOL 120 Modern Biology II (1195) (C and above)",
       "COREQ": "",
       "ANTIREQ": "",
       "prerequisites": [
