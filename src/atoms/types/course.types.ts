@@ -26,6 +26,9 @@ export interface Course {
   PREREQ?: string;
   COREQ?: string;
   ANTIREQ?: string;
+  PREREQNEW?: string;
+  COREQNEW?: string;
+  ANTIREQNEW?: string;
   courseCode: string;
   courseName: string;
   credits: number;
