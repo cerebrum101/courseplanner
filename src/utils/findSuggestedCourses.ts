@@ -10,32 +10,6 @@ const extractCourseCodesFromString = (reqString: string): string[] => {
 };
 
 /**
- * Extract course codes from legacy prerequisites array
- */
-const extractCourseCodesFromArray = (
-  reqArray: (string | { type: string; courses: string[] })[]
-): string[] => {
-  if (!reqArray) return [];
-  
-  const codes: string[] = [];
-  
-  reqArray.forEach(item => {
-    if (typeof item === 'string') {
-      // Skip special markers like !PERM
-      if (!item.startsWith('!')) {
-        codes.push(item.trim());
-      }
-    } else if (typeof item === 'object' && 'courses' in item) {
-      // For OR groups, we need at least ONE of the courses
-      // For now, we'll be conservative and require all OR options to be available
-      codes.push(...item.courses.map(c => c.trim()));
-    }
-  });
-  
-  return codes;
-};
-
-/**
  * Check if all prerequisites for a course are satisfied
  * For OR groups: at least one course must be in addedCodes
  * For AND requirements: all courses must be in addedCodes

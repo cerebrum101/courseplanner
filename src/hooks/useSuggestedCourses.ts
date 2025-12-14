@@ -20,7 +20,6 @@ interface SuggestedCourseNode extends Node {
 export const useSuggestedCourses = (
   addedCardsCodes: string[],
   allCourses: Course[],
-  existingNodes: Node[],
   setNodes: (updater: (nodes: Node[]) => Node[]) => void,
   setEdges: (updater: (edges: Edge[]) => Edge[]) => void,
   onAddSuggested: (courseCode: string) => void

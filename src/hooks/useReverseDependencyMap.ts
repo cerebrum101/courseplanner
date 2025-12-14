@@ -18,7 +18,7 @@ export const useReverseDependencyMap = (): Map<string, ReverseDependencies> => {
     const reverseMap = buildReverseDependencyMap(courses);
     
     // Optional: Log statistics for debugging
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.DEV) {
       console.log('[Reverse Dependencies] Map built successfully');
       console.log('[Reverse Dependencies] Total courses:', reverseMap.size);
       
@@ -33,9 +33,9 @@ export const useReverseDependencyMap = (): Map<string, ReverseDependencies> => {
         if (deps.antirequisiteFor.length > 0) antireqCount++;
       });
       
-      console.log('[Reverse Dependencies] Courses used as prerequisites:', prereqCount);
-      console.log('[Reverse Dependencies] Courses used as corequisites:', coreqCount);
-      console.log('[Reverse Dependencies] Courses used as antirequisites:', antireqCount);
+      // console.log('[Reverse Dependencies] Courses used as prerequisites:', prereqCount);
+      // console.log('[Reverse Dependencies] Courses used as corequisites:', coreqCount);
+      // console.log('[Reverse Dependencies] Courses used as antirequisites:', antireqCount);
     }
     
     return reverseMap;

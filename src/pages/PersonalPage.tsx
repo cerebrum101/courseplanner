@@ -60,6 +60,7 @@ export default function UserPlanPage() {
   const [currCourse, setCurrCourse] = useState('');
   const [isDashboardVisible, setIsDashboardVisible] = useState(false);
   const [colorMode, setColorMode] = useState<ColorMode>('light');
+  const [showOnlySpring2026, setShowOnlySpring2026] = useState(false);
 
   const onChange: ChangeEventHandler<HTMLSelectElement> = (evt) => {
     setColorMode(evt.target.value as ColorMode);
@@ -177,6 +178,8 @@ export default function UserPlanPage() {
       <Dashboard
         addedCardsCodes={addedCardsCodes}
         setAddedCardsCodes={setAddedCardsCodes}
+        showOnlySpring2026={showOnlySpring2026}
+        setShowOnlySpring2026={setShowOnlySpring2026}
       />
       <Panel position="bottom-left">
         <ColorModeSelector onChange={onChange} value={colorMode} />
