@@ -4,10 +4,24 @@ import courseDataJSON from '../data/courseData.json';
 
 import '.././styles/index.css';
 
-export default function CourseDashboard({ selctedCourseData, isVisible, onToggleVisibility }) {
+export default function CourseDashboard({ selctedCourseData, isVisible, onToggleVisibility, reverseDependencyMap, addedCardsCodes, setAddedCardsCodes }) {
     function handleButtonClick() {
         onToggleVisibility();
     }
+
+    function handleAddCourse(courseCode) {
+        if (!addedCardsCodes.includes(courseCode)) {
+            setAddedCardsCodes([...addedCardsCodes, courseCode]);
+        }
+    }
+
+    // Log reverse dependencies when a course is selected (for debugging)
+    React.useEffect(() => {
+        if (selctedCourseData && reverseDependencyMap) {
+            const reverseDeps = reverseDependencyMap.get(selctedCourseData.courseCode);
+            console.log(`[Reverse Dependencies] For course: ${selctedCourseData.courseCode}`, reverseDeps);
+        }
+    }, [selctedCourseData, reverseDependencyMap]);
 
     function handleCourseReqs(Course) {
         let prereqs = '';
@@ -124,6 +138,56 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
                                         <span className="text-sm text-gray-400">Credits:</span>
                                         <span>{selctedCourseData.credits} ECTS</span>
                                     </p>
+                                    {/* Reverse Dependencies */}
+                                    {reverseDependencyMap && (() => {
+                                        const reverseDeps = reverseDependencyMap.get(selctedCourseData.courseCode);
+                                        if (!reverseDeps) return null;
+                                        
+                                        const renderCourseList = (courses) => {
+                                            if (!courses || courses.length === 0) return <span>None</span>;
+                                            
+                                            return (
+                                                <div className="flex flex-col gap-1">
+                                                    {courses.map(courseCode => {
+                                                        const isAdded = addedCardsCodes?.includes(courseCode);
+                                                        return (
+                                                            <div key={courseCode} className="flex items-center justify-between gap-2">
+                                                                <span className="text-sm">{courseCode}</span>
+                                                                <button
+                                                                    onClick={() => handleAddCourse(courseCode)}
+                                                                    disabled={isAdded}
+                                                                    className={`px-2 py-0.5 text-xs rounded transition-colors ${
+                                                                        isAdded 
+                                                                            ? 'bg-gray-600 text-gray-400 cursor-not-allowed' 
+                                                                            : 'bg-green-500 hover:bg-green-600 text-white cursor-pointer'
+                                                                    }`}
+                                                                >
+                                                                    {isAdded ? 'Added' : 'Add'}
+                                                                </button>
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
+                                            );
+                                        };
+                                        
+                                        return (
+                                            <>
+                                                <p className="flex flex-col">
+                                                    <span className="text-sm text-gray-400">Is prerequisite to:</span>
+                                                    {renderCourseList(reverseDeps.prerequisiteFor)}
+                                                </p>
+                                                <p className="flex flex-col">
+                                                    <span className="text-sm text-gray-400">Is corequisite to:</span>
+                                                    {renderCourseList(reverseDeps.corequisiteFor)}
+                                                </p>
+                                                <p className="flex flex-col">
+                                                    <span className="text-sm text-gray-400">Is antirequisite to:</span>
+                                                    {renderCourseList(reverseDeps.antirequisiteFor)}
+                                                </p>
+                                            </>
+                                        );
+                                    })()}
                                     <p className="flex flex-col">
                                         <span className="text-sm text-gray-400">Description:</span>
                                         <span className="text-sm">{selctedCourseData.SHORTDESC}</span>

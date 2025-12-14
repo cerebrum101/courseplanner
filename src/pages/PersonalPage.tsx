@@ -25,6 +25,7 @@ import { useCourseMap } from '../hooks/useCourseMap';
 import { useCourseNodes } from '../hooks/useCourseNodes';
 import { useCourseEdges } from '../hooks/useCourseEdges';
 import { useNodeClick } from '../hooks/useNodeClick';
+import { useReverseDependencyMap } from '../hooks/useReverseDependencyMap';
 // import { useNodesChange } from '../hooks/useNodesChange';
 import { saveFlow, loadFlow, resetFlow } from '../utils/saveCourses';
 
@@ -65,6 +66,7 @@ export default function UserPlanPage() {
   };
 
   const courseMap = useCourseMap();
+  const reverseDependencyMap = useReverseDependencyMap();
   const handleNodeClick = useNodeClick(currCourse, setCurrCourse, setIsDashboardVisible);
 
   // Modified handleNodesChange to properly handle course state
@@ -168,6 +170,9 @@ export default function UserPlanPage() {
         selctedCourseData={courseMap.get(currCourse)}
         isVisible={isDashboardVisible}
         onToggleVisibility={handleToggleDashboard}
+        reverseDependencyMap={reverseDependencyMap}
+        addedCardsCodes={addedCardsCodes}
+        setAddedCardsCodes={setAddedCardsCodes}
       />
       <Dashboard
         addedCardsCodes={addedCardsCodes}

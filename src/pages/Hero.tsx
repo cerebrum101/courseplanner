@@ -29,6 +29,9 @@ const Hero: React.FC = () => {
     { name: 'NU Registrar', href: 'https://registrar.nu.edu.kz', external: true },
     { name: 'NU Academic Advising Office', href: 'https://aao.nu.edu.kz', external: true },
     { name: 'crashed.nu', href: 'https://crashed.nu', external: true },
+    { name: 'nuspace.kz', href: 'https://nuspace.kz', external: true },
+    { name: 'innu.kz', href: 'https://innu.kz', external: true },
+    { name: 'SENU Mentorship', href: 'https://t.me/+b88gbfIWqUo2Yjli', external: true },
     { name: 'NU Avenue > Course Registration', href: 'https://t.me/c/1261951893/398886', external: true },
     { name: 'VA Course & Prof evaluation', href: 'https://t.me/c/1881776823/290?thread=290', external: true },
   ];
@@ -74,6 +77,11 @@ const Hero: React.FC = () => {
               >
                 Start Planning Now
               </Link>
+            </div>
+
+            {/* Update Notice */}
+            <div className="p-3 bg-blue-900 bg-opacity-30 border border-blue-700 rounded-lg text-sm">
+              <span className="text-blue-400 font-semibold">New:</span> Reverse dependencies & suggested courses now available!
             </div>
 
             {/* See Also Section */}

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import courseDataJSON from '../data/courseData.json';
+import { findSuggestedCourses } from '../utils/findSuggestedCourses';
 
 import '.././styles/index.css';
 
@@ -31,9 +32,15 @@ function Card({ code, name, credits, isAdded, toggleButton }) {
 export default function Dashboard({addedCardsCodes, setAddedCardsCodes}) {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
+    const [showSuggestedOnly, setShowSuggestedOnly] = useState(false);
 
     function handleButtonClick() {
         setIsCollapsed((isCollapsed) => !isCollapsed);
+    }
+
+    function toggleSuggestedFilter() {
+        setShowSuggestedOnly(prev => !prev);
+        setSearchTerm(''); // Clear search when toggling
     }
 
     function handleToggleCard(code) {
@@ -46,11 +53,27 @@ export default function Dashboard({addedCardsCodes, setAddedCardsCodes}) {
           }
     }
 
+    // Compute suggested courses
+    const suggestedCourses = useMemo(() => {
+        return findSuggestedCourses(courseDataJSON.coursesData, addedCardsCodes);
+    }, [addedCardsCodes]);
+
+    const suggestedCourseCodes = useMemo(() => {
+        return new Set(suggestedCourses.map(c => c.courseCode));
+    }, [suggestedCourses]);
+
+    // Filter courses based on search term and suggested filter
     const filteredCards = courseDataJSON.coursesData
-    .filter(course => 
-        course.courseCode.toLowerCase().includes(searchTerm.toLowerCase()) || 
-        course.courseName.toLowerCase().includes(searchTerm.toLowerCase()) 
-    )
+    .filter(course => {
+        // If showing suggested only, filter by suggested courses
+        if (showSuggestedOnly) {
+            return suggestedCourseCodes.has(course.courseCode);
+        }
+        
+        // Otherwise use normal search filter
+        return course.courseCode.toLowerCase().includes(searchTerm.toLowerCase()) || 
+               course.courseName.toLowerCase().includes(searchTerm.toLowerCase());
+    })
     .map((el) => (
         <Card 
             key={el.courseCode}
@@ -89,7 +112,22 @@ export default function Dashboard({addedCardsCodes, setAddedCardsCodes}) {
                         value={searchTerm}
                         id="course-search"
                         placeholder="Course name or code"
+                        disabled={showSuggestedOnly}
                     />
+                </div>
+
+                {/* Suggested Courses Button */}
+                <div className="px-2 mt-2">
+                    <button
+                        onClick={toggleSuggestedFilter}
+                        className={`w-full px-4 py-2 rounded-lg font-medium transition-colors ${
+                            showSuggestedOnly
+                                ? 'bg-red-500 hover:bg-red-600 text-white'
+                                : 'bg-red-600 hover:bg-red-700 text-white'
+                        }`}
+                    >
+                        {showSuggestedOnly ? 'Stop Showing Suggestions' : 'Show Suggested Courses'}
+                    </button>
                 </div>
 
                 <div className="cards flex flex-col w-full overflow-y-auto max-h-[calc(100vh-8rem)] mt-4 space-y-4 pb-12">
