@@ -132,6 +132,10 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
                                         <span className="text-sm text-gray-400">Credits:</span>
                                         <span>{selctedCourseData.credits} ECTS</span>
                                     </p>
+                                    <p className="flex flex-col">
+                                        <span className="text-sm text-gray-400">Last Available:</span>
+                                        <span>{selctedCourseData.TERMNAME || 'n/a'}</span>
+                                    </p>
                                 </div>
 
                                 {/* Divider */}
