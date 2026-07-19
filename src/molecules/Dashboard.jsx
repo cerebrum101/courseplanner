@@ -1,179 +1,122 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import courseDataJSON from '../data/courseData.json';
 import { findSuggestedCourses } from '../utils/findSuggestedCourses';
-
-import '.././styles/index.css';
-
+import '../styles/index.css';
 
 function Card({ code, name, credits, isAdded, toggleButton }) {
-    return (
-<div className="card p-4 bg-gray-800 border border-gray-600 rounded-lg flex flex-col space-y-2 shadow-md hover:shadow-lg transition-shadow">
-        <div className="card-info">
-        <p className="card-code text-blue-400 font-mono font-semibold">{code}</p>
-<p className="card-name text-white font-medium">{name}</p>
-<p className="card-credits text-yellow-300 font-mono">{credits}</p>
+  return (
+    <div className="flex flex-col p-3 mb-2 bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 dark:border-gray-700">
+      <div className="flex justify-between items-start">
+        <div>
+          <h3 className="font-bold text-sm text-gray-900 dark:text-gray-100">{code}</h3>
+          <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{name}</p>
         </div>
-        <button 
-    className={`px-4 py-2 w-full rounded-lg transition-colors font-medium ${
-        isAdded 
-            ? 'bg-red-500 hover:bg-red-600 text-white' 
-            : 'bg-green-500 hover:bg-green-600 text-white'
-    }`}
-    onClick={() => toggleButton(code)}
-    aria-label={isAdded ? `Remove ${name}` : `Add ${name}`}
-    aria-pressed={isAdded}
->
-    {isAdded ? 'Remove' : 'Add'}
-</button>
+        <span className="text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded">
+          {credits}
+        </span>
       </div>
-    );
+      <button
+        onClick={() => toggleButton(code)}
+        aria-label={isAdded ? `Remove ${name}` : `Add ${name}`}
+        aria-pressed={isAdded}
+        className={`mt-3 w-full py-1.5 text-xs font-medium rounded transition-colors ${
+          isAdded ? 'bg-red-500 hover:bg-red-600 text-white' : 'bg-blue-500 hover:bg-blue-600 text-white'
+        }`}
+      >
+        {isAdded ? 'Remove' : 'Add'}
+      </button>
+    </div>
+  );
+}
+
+export default function Dashboard({ addedCardsCodes, setAddedCardsCodes, showOnlyFall2026, setShowOnlyFall2026 }) {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [showSuggestedOnly, setShowSuggestedOnly] = useState(false);
+
+  function handleButtonClick() { setIsCollapsed((prev) => !prev); }
+  function handleToggleFall2026() { setShowOnlyFall2026(!showOnlyFall2026); }
+  function toggleSuggestedFilter() { setShowSuggestedOnly((prev) => !prev); setSearchTerm(''); }
+
+  function handleToggleCard(code) {
+    if (!addedCardsCodes.includes(code)) {
+      setAddedCardsCodes([...addedCardsCodes, code]);
+    } else {
+      setAddedCardsCodes(addedCardsCodes.filter((courseCode) => courseCode !== code));
+    }
   }
 
-export default function Dashboard({addedCardsCodes, setAddedCardsCodes, showOnlySpring2026, setShowOnlySpring2026}) {
-    const [isCollapsed, setIsCollapsed] = useState(false);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [showSuggestedOnly, setShowSuggestedOnly] = useState(false);
+  const suggestedCourses = useMemo(() => {
+    let courses = findSuggestedCourses(courseDataJSON.coursesData, addedCardsCodes);
+    if (showOnlyFall2026) courses = courses.filter((c) => c.AVAILABLE_FALL_2026);
+    return courses;
+  }, [addedCardsCodes, showOnlyFall2026]);
 
-    function handleButtonClick() {
-        setIsCollapsed((isCollapsed) => !isCollapsed);
-    }
+  const suggestedCourseCodes = useMemo(() => new Set(suggestedCourses.map((c) => c.courseCode)), [suggestedCourses]);
 
-    function handleToggleSpring2026() {
-        setShowOnlySpring2026(!showOnlySpring2026);
-    }
-
-    function toggleSuggestedFilter() {
-        setShowSuggestedOnly(prev => !prev);
-        setSearchTerm(''); // Clear search when toggling
-    }
-
-    function handleToggleCard(code) {
-          if (!(addedCardsCodes.includes(code)))
-          {
-            setAddedCardsCodes([...addedCardsCodes, code])
-          }
-          else {
-            setAddedCardsCodes(addedCardsCodes.filter(courseCode => courseCode !== code))
-          }
-    }
-
-    // Compute suggested courses
-    const suggestedCourses = useMemo(() => {
-        let courses = findSuggestedCourses(courseDataJSON.coursesData, addedCardsCodes);
-        // Filter by Spring 2026 if toggle is on
-        if (showOnlySpring2026) {
-            courses = courses.filter(c => c.AVAILABLE_SPRING_2026);
-        }
-        return courses;
-    }, [addedCardsCodes, showOnlySpring2026]);
-
-    const suggestedCourseCodes = useMemo(() => {
-        return new Set(suggestedCourses.map(c => c.courseCode));
-    }, [suggestedCourses]);
-
-    // Filter courses based on search term, suggested filter, and Spring 2026 filter
-    const filteredCards = courseDataJSON.coursesData
-    .filter(course => {
-        // First check Spring 2026 filter
-        if (showOnlySpring2026 && !course.AVAILABLE_SPRING_2026) {
-            return false;
-        }
-
-        // If showing suggested only, filter by suggested courses
-        if (showSuggestedOnly) {
-            return suggestedCourseCodes.has(course.courseCode);
-        }
-        
-        // Otherwise use normal search filter
-        return course.courseCode.toLowerCase().includes(searchTerm.toLowerCase()) || 
-               course.courseName.toLowerCase().includes(searchTerm.toLowerCase());
+  const filteredCards = courseDataJSON.coursesData
+    .filter((course) => {
+      if (showOnlyFall2026 && !course.AVAILABLE_FALL_2026) return false;
+      if (showSuggestedOnly) return suggestedCourseCodes.has(course.courseCode);
+      return course.courseCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
+             course.courseName.toLowerCase().includes(searchTerm.toLowerCase());
     })
     .map((el) => (
-        <Card 
-            key={el.courseCode}
-            code={el.courseCode}
-            name={el.courseName}
-            credits={`${el.credits} ECTS`}
-            isAdded={addedCardsCodes.includes(el.courseCode)}
-            toggleButton={handleToggleCard}
-        />
+      <Card
+        key={el.courseCode}
+        code={el.courseCode}
+        name={el.courseName}
+        credits={el.credits}
+        isAdded={addedCardsCodes.includes(el.courseCode)}
+        toggleButton={handleToggleCard}
+      />
     ));
 
-    return (
-        <>
-        {/* Expand button when dashboard is collapsed */}
-        <button 
-        className={`${isCollapsed ? "block": "hidden"} absolute right-[20px] top-[30px] z-20  h-[40px] w-[40px] bg-gray-600 rounded-lg border border-gray-500 text-3xl text-white flex items-center justify-center transition-all duration-300 hover:bg-gray-500 mr-2`}
-                        onClick={handleButtonClick}
-                        aria-label={isCollapsed ? "Expand dashboard" : "Collapse dashboard"}
-                    >
-                        {isCollapsed ?  '‹' : '›'}
-                    </button>
+  return (
+    <>
+      <button
+        onClick={handleButtonClick}
+        className="fixed top-4 z-20 bg-gray-800 text-white p-2 rounded-l-lg shadow-lg transition-all duration-300"
+        style={{ right: isCollapsed ? '0px' : 'calc(25% + 0px)' }}
+      >
+        {isCollapsed ? '‹' : '›'}
+      </button>
 
-        {/* Spring 2026 Toggle Switch - positioned to the LEFT of RIGHT dashboard */}
-        <div 
-            className="fixed top-[100px] z-20 transition-all duration-300"
-            style={{
-                right: isCollapsed ? '10px' : 'calc(20% + 10px)'
-            }}
-        >
-            <div className="bg-gray-800 border border-gray-600 rounded-lg p-3 shadow-lg">
-                <label className="flex flex-col items-center cursor-pointer">
-                    <span className="text-xs text-gray-300 mb-2 text-center whitespace-nowrap">Spring 2026</span>
-                    <div className="relative">
-                        <input 
-                            type="checkbox" 
-                            className="sr-only peer" 
-                            checked={showOnlySpring2026}
-                            onChange={handleToggleSpring2026}
-                        />
-                        <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                    </div>
-                </label>
-            </div>
+      <div className={`fixed top-0 right-0 h-full bg-gray-50 dark:bg-gray-900 border-l border-gray-200 dark:border-gray-700 shadow-xl transition-all duration-300 z-10 flex flex-col ${isCollapsed ? 'w-0 overflow-hidden' : 'w-1/4 min-w-[300px]'}`}>
+        <div className="p-4 flex flex-col gap-3 h-full">
+          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">Course Dashboard</h2>
+          
+          {/* Fall 2026 Toggle */}
+          <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-2 rounded-lg">
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Fall 2026</span>
+            <label className="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" className="sr-only peer" checked={showOnlyFall2026} onChange={handleToggleFall2026} />
+              <div className="w-9 h-5 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+            </label>
+          </div>
+
+          <input
+            type="text"
+            onChange={(e) => setSearchTerm(e.target.value)}
+            value={searchTerm}
+            id="course-search"
+            placeholder="Course name or code"
+            disabled={showSuggestedOnly}
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:opacity-50"
+          />
+
+          <button
+            onClick={toggleSuggestedFilter}
+            className={`w-full py-2 text-sm font-medium rounded-md transition-colors ${showSuggestedOnly ? 'bg-red-500 hover:bg-red-600 text-white' : 'bg-indigo-500 hover:bg-indigo-600 text-white'}`}
+          >
+            {showSuggestedOnly ? 'Stop Showing Suggestions' : 'Show Suggested Courses'}
+          </button>
+
+          <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+            {filteredCards}
+          </div>
         </div>
-
-        <div className={`dashboard h-[90%] fixed rounded-bl-2xl bg-gray-900 right-0 flex flex-col z-9 transition-all duration-300 overflow-hidden max-w-[360px] ${isCollapsed ? "w-0" : "w-1/5 min-w-[250px]"}`}>
-            <div className="wrapper h-full w-full mx-auto px-2">
-                <div className="flex items-center mt-8 px-2">
-                    <button 
-                        className="h-[40px] w-[40px] bg-gray-600 rounded-lg border border-gray-500 text-3xl text-white flex items-center justify-center transition-all duration-300 hover:bg-gray-500 mr-2"
-                        onClick={handleButtonClick}
-                        aria-label={isCollapsed ? "Expand dashboard" : "Collapse dashboard"}
-                    >
-                        {isCollapsed ? '‹': '›'}
-                    </button>
-                    
-                    <input 
-                        type="text" 
-                        className="input w-full h-10 rounded-lg z-10 bg-gray-100 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        value={searchTerm}
-                        id="course-search"
-                        placeholder="Course name or code"
-                        disabled={showSuggestedOnly}
-                    />
-                </div>
-
-                {/* Suggested Courses Button */}
-                <div className="px-2 mt-2">
-                    <button
-                        onClick={toggleSuggestedFilter}
-                        className={`w-full px-4 py-2 rounded-lg font-medium transition-colors ${
-                            showSuggestedOnly
-                                ? 'bg-red-500 hover:bg-red-600 text-white'
-                                : 'bg-red-600 hover:bg-red-700 text-white'
-                        }`}
-                    >
-                        {showSuggestedOnly ? 'Stop Showing Suggestions' : 'Show Suggested Courses'}
-                    </button>
-                </div>
-
-                <div className="cards flex flex-col w-full overflow-y-auto max-h-[calc(100vh-8rem)] mt-4 space-y-4 pb-24">
-                    {filteredCards}
-                </div>
-            </div>
-        </div>
-        </>
-    );
+      </div>
+    </>
+  );
 }

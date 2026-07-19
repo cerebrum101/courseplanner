@@ -26,5 +26,24 @@ body,
   border: dashed;
 }
 
+/* Fix React Flow Controls Colors */
+.react-flow__controls {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
+}
+
+.react-flow__controls button {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  fill: #ffffff !important;
+}
+
+.react-flow__controls button:hover {
+  background-color: #374151 !important;
+}
+
+.react-flow__controls button svg {
+  fill: #ffffff !important;
+}
+
 
 
