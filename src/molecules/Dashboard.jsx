@@ -29,12 +29,11 @@ function Card({ code, name, credits, isAdded, toggleButton }) {
   );
 }
 
-export default function Dashboard({ addedCardsCodes, setAddedCardsCodes, showOnlyFall2026, setShowOnlyFall2026 }) {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+export default function Dashboard({ addedCardsCodes, setAddedCardsCodes, showOnlyFall2026, setShowOnlyFall2026, isOpen, setIsOpen }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [showSuggestedOnly, setShowSuggestedOnly] = useState(false);
 
-  function handleButtonClick() { setIsCollapsed((prev) => !prev); }
+  function handleButtonClick() { setIsOpen(!isOpen); }
   function handleToggleFall2026() { setShowOnlyFall2026(!showOnlyFall2026); }
   function toggleSuggestedFilter() { setShowSuggestedOnly((prev) => !prev); setSearchTerm(''); }
 
@@ -76,17 +75,20 @@ export default function Dashboard({ addedCardsCodes, setAddedCardsCodes, showOnl
     <>
       <button
         onClick={handleButtonClick}
-        className="fixed top-4 z-20 bg-gray-800 text-white p-2 rounded-l-lg shadow-lg transition-all duration-300"
-        style={{ right: isCollapsed ? '0px' : 'calc(25% + 0px)' }}
+        className={`fixed top-4 z-30 bg-gray-800 text-white p-2.5 sm:p-2 rounded-l-lg shadow-lg transition-all duration-300 touch-manipulation ${
+          isOpen ? 'left-0 md:left-auto md:right-[25%]' : 'right-0'
+        }`}
+        aria-label={isOpen ? 'Close course list' : 'Open course list'}
       >
-        {isCollapsed ? '‹' : '›'}
+        {isOpen ? '‹' : '›'}
       </button>
 
-      <div className={`fixed top-0 right-0 h-full bg-gray-50 dark:bg-gray-900 border-l border-gray-200 dark:border-gray-700 shadow-xl transition-all duration-300 z-10 flex flex-col ${isCollapsed ? 'w-0 overflow-hidden' : 'w-1/4 min-w-[300px]'}`}>
-        <div className="p-4 flex flex-col gap-3 h-full">
+      <div className={`fixed top-0 right-0 h-full bg-gray-50 dark:bg-gray-900 border-l border-gray-200 dark:border-gray-700 shadow-xl transition-all duration-300 z-20 flex flex-col ${
+        isOpen ? 'w-full sm:w-[min(85vw,360px)] md:w-1/4 md:min-w-[300px]' : 'w-0 overflow-hidden'
+      }`}>
+        <div className="p-3 sm:p-4 flex flex-col gap-3 h-full min-w-0">
           <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">Course Dashboard</h2>
           
-          {/* Fall 2026 Toggle */}
           <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-2 rounded-lg">
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Fall 2026</span>
             <label className="relative inline-flex items-center cursor-pointer">

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { CourseNode } from '../atoms/types/course.types';
 // import { Node } from '@xyflow/react';
 import { saveFlow, loadFlow, resetFlow } from '../utils/saveCourses';
@@ -8,9 +8,11 @@ export const useCourseNodes = (
   nodes: CourseNode[],
   courseMap: Map<string, any>,
   handleNodeClick: (nodeId: string) => void,
-  setNodes: (nodes: CourseNode[]) => void,
+  setNodes: (nodes: CourseNode[] | ((nodes: CourseNode[]) => CourseNode[])) => void,
   setEdges: (edges: any[]) => void
 ) => {
+  const handleNodeClickRef = useRef(handleNodeClick);
+  handleNodeClickRef.current = handleNodeClick;
   // Handle saving the current flow state
   const handleSave = () => {
     saveFlow(nodes, []);
@@ -32,51 +34,51 @@ export const useCourseNodes = (
     setEdges([]);
   };
 
-  // Only create new nodes when courses are added
+  // Only create new nodes when courses are added or removed
   useEffect(() => {
-    const courseNodes = addedCardsCodes.map((code) => {
-      const existingNode = nodes.find(n => n.id === code);
-      const courseName = courseMap.get(code)?.courseName;
+    setNodes((currentNodes) => {
+      const courseNodes = addedCardsCodes.map((code) => {
+        const existingNode = currentNodes.find((n) => n.id === code);
+        const courseName = courseMap.get(code)?.courseName;
 
-      // If we have an existing node, use its position
-      if (existingNode) {
+        if (existingNode) {
+          return {
+            ...existingNode,
+            data: {
+              label: code,
+              name: courseName,
+              onNodeClick: handleNodeClickRef.current,
+            },
+            type: 'Course',
+            targetPosition: 'top',
+          } as CourseNode;
+        }
+
+        const lastNode = currentNodes[currentNodes.length - 1];
+        const newX = lastNode?.position.x || 0;
+        const newY = lastNode?.position.y || 0;
+
         return {
           id: code,
-          position: existingNode.position,
-          data: { 
+          position: {
+            x: newX + 100,
+            y: newY,
+          },
+          data: {
             label: code,
             name: courseName,
-            onNodeClick: handleNodeClick
+            onNodeClick: handleNodeClickRef.current,
           },
           draggable: true,
           type: 'Course',
           targetPosition: 'top',
         } as CourseNode;
-      }
+      });
 
-      // For new nodes, find the last node's position or use default
-      const lastNode = nodes[nodes.length - 1];
-      const newX = lastNode?.position.x || 0;
-      const newY = lastNode?.position.y || 0;
-      
-      return {
-        id: code,
-        position: { 
-          x: newX + 100, 
-          y: newY, 
-        },
-        data: { 
-          label: code,
-          name: courseName,
-          onNodeClick: handleNodeClick
-        },
-        draggable: true,
-        type: 'Course',
-        targetPosition: 'top',
-      } as CourseNode;
+      const orNodes = currentNodes.filter((node) => node.id.startsWith('OR_'));
+      return [...courseNodes, ...orNodes];
     });
-    setNodes(courseNodes);
-  }, [addedCardsCodes, courseMap, handleNodeClick, setNodes]);
+  }, [addedCardsCodes, courseMap, setNodes]);
 
   return {
     handleSave,

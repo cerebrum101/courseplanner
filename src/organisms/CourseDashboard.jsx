@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import courseDataJSON from '../data/courseData.json';
 import '../styles/index.css';
 
-export default function CourseDashboard({ selctedCourseData, isVisible, onToggleVisibility, reverseDependencyMap, addedCardsCodes, setAddedCardsCodes }) {
-  function handleButtonClick() { onToggleVisibility(); }
+export default function CourseDashboard({ selctedCourseData, reverseDependencyMap, addedCardsCodes, setAddedCardsCodes, isOpen, setIsOpen }) {
+  function handleButtonClick() { setIsOpen(!isOpen); }
 
   function handleAddCourse(courseCode) {
     if (!addedCardsCodes.includes(courseCode)) {
@@ -11,7 +11,7 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
     }
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (selctedCourseData && reverseDependencyMap) {
       const reverseDeps = reverseDependencyMap.get(selctedCourseData.courseCode);
     }
@@ -21,14 +21,18 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
     <>
       <button
         onClick={handleButtonClick}
-        className="fixed top-4 z-20 bg-gray-800 text-white p-2 rounded-r-lg shadow-lg transition-all duration-300"
-        style={{ left: isVisible ? 'calc(25% + 0px)' : '0px' }}
+        className={`fixed top-4 z-30 bg-gray-800 text-white p-2.5 sm:p-2 rounded-r-lg shadow-lg transition-all duration-300 touch-manipulation ${
+          isOpen ? 'right-0 md:right-auto md:left-[25%]' : 'left-0'
+        }`}
+        aria-label={isOpen ? 'Close course details' : 'Open course details'}
       >
-        {!isVisible ? '›' : '‹'}
+        {!isOpen ? '›' : '‹'}
       </button>
 
-      <div className={`fixed top-0 left-0 h-full bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 shadow-xl transition-all duration-300 z-10 flex flex-col ${isVisible ? 'w-1/4 min-w-[300px]' : 'w-0 overflow-hidden'}`}>
-        <div className="p-4 flex flex-col gap-3 h-full overflow-y-auto custom-scrollbar">
+      <div className={`fixed top-0 left-0 h-full bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700 shadow-xl transition-all duration-300 z-20 flex flex-col ${
+        isOpen ? 'w-full sm:w-[min(85vw,360px)] md:w-1/4 md:min-w-[300px]' : 'w-0 overflow-hidden'
+      }`}>
+        <div className="p-3 sm:p-4 flex flex-col gap-3 h-full overflow-y-auto custom-scrollbar min-w-0">
           <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">Course Details</h2>
           
           {selctedCourseData ? (
@@ -106,7 +110,6 @@ export default function CourseDashboard({ selctedCourseData, isVisible, onToggle
                 <p className="text-sm"><span className="font-semibold text-gray-600 dark:text-gray-400">Description:</span> {selctedCourseData.SHORTDESC}</p>
               </div>
 
-              {/* Fall 2026 Priorities */}
               {selctedCourseData.AVAILABLE_FALL_2026 && selctedCourseData.FALL_2026_PRIORITIES && (
                 <div className="border-t border-gray-200 dark:border-gray-700 pt-3">
                   <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-2">Fall 2026 Priorities</h4>

@@ -39,15 +39,16 @@ export default function UserPlanPage() {
   const [addedCardsCodes, setAddedCardsCodes] = useState<string[]>([]);
   const [nodes, setNodes, onNodesChange] = useNodesState<any>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<any>([]);
-  
   const [currCourse, setCurrCourse] = useState<string>('');
-  const [isDashboardVisible, setIsDashboardVisible] = useState(false);
   const [colorMode, setColorMode] = useState<ColorMode>('light');
   
-  // ONLY Fall 2026 filter
+  // ONLY Fall 2026
   const [showOnlyFall2026, setShowOnlyFall2026] = useState(false);
 
-  // Apply dark mode class to document
+  // LIFTED STATE: Parent controls BOTH dashboards to slide UI correctly
+  const [isLeftOpen, setIsLeftOpen] = useState(false);
+  const [isRightOpen, setIsRightOpen] = useState(true);
+
   useEffect(() => {
     if (colorMode === 'dark') {
       document.documentElement.classList.add('dark');
@@ -62,7 +63,7 @@ export default function UserPlanPage() {
 
   const courseMap = useCourseMap();
   const reverseDependencyMap = useReverseDependencyMap();
-  const handleNodeClick = useNodeClick(currCourse, setCurrCourse, setIsDashboardVisible);
+  const handleNodeClick = useNodeClick(currCourse, setCurrCourse, setIsLeftOpen);
 
   const handleNodesChange = useCallback((changes: any[]) => {
     onNodesChange(changes);
@@ -84,7 +85,6 @@ export default function UserPlanPage() {
         id: `user-edge-${Date.now()}`,
         type: 'user-drawn',
       } as UserDrawnEdge;
-      
       setEdges((eds: any[]) => addEdge(newEdge, eds));
     },
     [setEdges]
@@ -93,21 +93,15 @@ export default function UserPlanPage() {
   useCourseNodes(addedCardsCodes, nodes, courseMap, handleNodeClick, setNodes, setEdges);
   useCourseEdges(addedCardsCodes, courseMap, setEdges, setNodes);
 
-  const handleToggleDashboard = () => {
-    setIsDashboardVisible((prev) => !prev);
-  };
-
   const handleSaveClick = () => { saveFlow(nodes, edges); };
-  
   const handleRestoreClick = () => {
     const savedFlow = loadFlow();
     if (savedFlow && savedFlow.nodes.length > 0) {
+      setAddedCardsCodes(savedFlow.nodes.map((node: any) => node.id));
       setNodes(savedFlow.nodes as any[]);
       setEdges(savedFlow.edges as any[]);
-      setAddedCardsCodes(savedFlow.nodes.map((node: any) => node.id));
     }
   };
-  
   const handleResetClick = () => {
     resetFlow();
     setAddedCardsCodes([]);
@@ -116,9 +110,10 @@ export default function UserPlanPage() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-      <div className="flex-1 relative">
+    <div className="flex h-[100dvh] w-full overflow-hidden bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      <div className="flex-1 relative h-full min-w-0">
         <ReactFlow
+          className="w-full h-full touch-pan-x touch-pan-y"
           nodes={nodes}
           edges={edges}
           onNodesChange={handleNodesChange}
@@ -128,15 +123,31 @@ export default function UserPlanPage() {
           fitView
         >
           <Background />
-          <Controls style={{ zIndex: 50 }} />
-          <Panel position="top-left" style={{ zIndex: 50 }}>
+          
+          <Controls
+            className={`planner-controls !shadow-md transition-all duration-300 ${
+              isLeftOpen ? 'md:!left-[calc(25%+20px)]' : ''
+            }`}
+          />
+          
+          <Panel
+            position="top-left"
+            className={`planner-panel-left transition-all duration-300 max-md:!left-2 max-md:!top-14 ${
+              isLeftOpen ? 'md:!left-[calc(25%+20px)]' : 'max-md:!left-2'
+            }`}
+          >
             <ColorModeSelector value={colorMode} onChange={onChange} />
           </Panel>
           
-          <Panel position="top-right" className="flex gap-2" style={{ zIndex: 50 }}>
-            <button onClick={handleSaveClick} className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Save Flow</button>
-            <button onClick={handleRestoreClick} className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600">Restore Flow</button>
-            <button onClick={handleResetClick} className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">Reset Flow</button>
+          <Panel
+            position="top-right"
+            className={`flex flex-col sm:flex-row gap-1 sm:gap-2 max-w-[calc(100vw-3rem)] transition-all duration-300 max-md:!right-2 max-md:!top-14 ${
+              isRightOpen ? 'md:!right-[calc(25%+20px)]' : 'max-md:!right-2'
+            }`}
+          >
+            <button onClick={handleSaveClick} className="px-2 py-1.5 sm:px-3 sm:py-1 text-xs sm:text-sm bg-blue-500 text-white rounded hover:bg-blue-600 touch-manipulation whitespace-nowrap">Save Flow</button>
+            <button onClick={handleRestoreClick} className="px-2 py-1.5 sm:px-3 sm:py-1 text-xs sm:text-sm bg-green-500 text-white rounded hover:bg-green-600 touch-manipulation whitespace-nowrap">Restore Flow</button>
+            <button onClick={handleResetClick} className="px-2 py-1.5 sm:px-3 sm:py-1 text-xs sm:text-sm bg-red-500 text-white rounded hover:bg-red-600 touch-manipulation whitespace-nowrap">Reset Flow</button>
           </Panel>
         </ReactFlow>
       </div>
@@ -146,15 +157,17 @@ export default function UserPlanPage() {
         setAddedCardsCodes={setAddedCardsCodes}
         showOnlyFall2026={showOnlyFall2026}
         setShowOnlyFall2026={setShowOnlyFall2026}
+        isOpen={isRightOpen}
+        setIsOpen={setIsRightOpen}
       />
 
       <CourseDashboard
         selctedCourseData={courseMap.get(currCourse)}
-        isVisible={isDashboardVisible}
-        onToggleVisibility={handleToggleDashboard}
         reverseDependencyMap={reverseDependencyMap}
         addedCardsCodes={addedCardsCodes}
         setAddedCardsCodes={setAddedCardsCodes}
+        isOpen={isLeftOpen}
+        setIsOpen={setIsLeftOpen}
       />
     </div>
   );
