@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import courseDataJSON from '../data/courseData.json';
 import '../styles/index.css';
 
+// Courses in the catalogue list (older courses stay in the data but are not offered as chips).
+const listedCodes = new Set(courseDataJSON.coursesData.filter((c) => c.recent).map((c) => c.courseCode));
+
 export default function CourseDashboard({ selctedCourseData, reverseDependencyMap, addedCardsCodes, setAddedCardsCodes, isOpen, setIsOpen }) {
   function handleButtonClick() { setIsOpen(!isOpen); }
 
@@ -43,20 +46,23 @@ export default function CourseDashboard({ selctedCourseData, reverseDependencyMa
               </div>
 
               <div className="space-y-2 text-sm">
-                <p><span className="font-semibold text-gray-600 dark:text-gray-400">School:</span> {selctedCourseData.SCHOOL}</p>
-                <p><span className="font-semibold text-gray-600 dark:text-gray-400">Department:</span> {selctedCourseData.DEPARTMENT}</p>
-                <p><span className="font-semibold text-gray-600 dark:text-gray-400">Prerequisites:</span> {selctedCourseData.PREREQ || 'None'}</p>
-                <p><span className="font-semibold text-gray-600 dark:text-gray-400">Corequisites:</span> {selctedCourseData.COREQ || 'None'}</p>
-                <p><span className="font-semibold text-gray-600 dark:text-gray-400">Antirequisites:</span> {selctedCourseData.ANTIREQ || 'None'}</p>
+                <p><span className="font-semibold text-gray-600 dark:text-gray-400">School:</span> {selctedCourseData.school}</p>
+                <p><span className="font-semibold text-gray-600 dark:text-gray-400">Department:</span> {selctedCourseData.department}</p>
+                <p><span className="font-semibold text-gray-600 dark:text-gray-400">Prerequisites:</span> {selctedCourseData.rawPrereq || 'None'}</p>
+                <p><span className="font-semibold text-gray-600 dark:text-gray-400">Corequisites:</span> {selctedCourseData.rawCoreq || 'None'}</p>
+                <p><span className="font-semibold text-gray-600 dark:text-gray-400">Antirequisites:</span> {selctedCourseData.rawAntireq || 'None'}</p>
                 <p><span className="font-semibold text-gray-600 dark:text-gray-400">Credits:</span> {selctedCourseData.credits} ECTS</p>
-                <p><span className="font-semibold text-gray-600 dark:text-gray-400">Last Available:</span> {selctedCourseData.TERMNAME || 'n/a'}</p>
+                <p><span className="font-semibold text-gray-600 dark:text-gray-400">Last Available:</span> {selctedCourseData.lastTaughtTerm || 'n/a'}</p>
+                {selctedCourseData.legacy && (
+                  <p><span className="font-semibold text-gray-600 dark:text-gray-400">Status:</span> <span className="text-red-500 font-medium">Legacy, not in the current registrar catalog</span></p>
+                )}
               </div>
 
               <div className="border-t border-gray-200 dark:border-gray-700 pt-3">
                 <p className="text-sm">
-                  <span className="font-semibold text-gray-600 dark:text-gray-400">Is available in Fall 2026:</span>{' '}
-                  <span className={selctedCourseData.AVAILABLE_FALL_2026 ? 'text-green-600 font-medium' : 'text-red-500 font-medium'}>
-                    {selctedCourseData.AVAILABLE_FALL_2026 ? 'Yes' : 'No'}
+                  <span className="font-semibold text-gray-600 dark:text-gray-400">Is available in Spring 2027:</span>{' '}
+                  <span className={selctedCourseData.AVAILABLE_SPRING_2027 ? 'text-green-600 font-medium' : 'text-red-500 font-medium'}>
+                    {selctedCourseData.AVAILABLE_SPRING_2027 ? 'Yes' : 'No'}
                   </span>
                 </p>
               </div>
@@ -65,7 +71,8 @@ export default function CourseDashboard({ selctedCourseData, reverseDependencyMa
                 const reverseDeps = reverseDependencyMap.get(selctedCourseData.courseCode);
                 if (!reverseDeps) return null;
 
-                const renderCourseList = (courses) => {
+                const renderCourseList = (allCourses) => {
+                  const courses = (allCourses || []).filter((code) => listedCodes.has(code));
                   if (!courses || courses.length === 0) return <span className="text-gray-500">None</span>;
                   return (
                     <div className="flex flex-wrap gap-2 mt-1">
@@ -107,20 +114,8 @@ export default function CourseDashboard({ selctedCourseData, reverseDependencyMa
               })()}
 
               <div className="border-t border-gray-200 dark:border-gray-700 pt-3">
-                <p className="text-sm"><span className="font-semibold text-gray-600 dark:text-gray-400">Description:</span> {selctedCourseData.SHORTDESC}</p>
+                <p className="text-sm"><span className="font-semibold text-gray-600 dark:text-gray-400">Description:</span> {selctedCourseData.description}</p>
               </div>
-
-              {selctedCourseData.AVAILABLE_FALL_2026 && selctedCourseData.FALL_2026_PRIORITIES && (
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-3">
-                  <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-2">Fall 2026 Priorities</h4>
-                  <div className="space-y-1 text-xs">
-                    <p><span className="font-semibold">Priority 1:</span> {selctedCourseData.FALL_2026_PRIORITIES.priority1 || '—'}</p>
-                    <p><span className="font-semibold">Priority 2:</span> {selctedCourseData.FALL_2026_PRIORITIES.priority2 || '—'}</p>
-                    <p><span className="font-semibold">Priority 3:</span> {selctedCourseData.FALL_2026_PRIORITIES.priority3 || '—'}</p>
-                    <p><span className="font-semibold">Priority 4:</span> {selctedCourseData.FALL_2026_PRIORITIES.priority4 || '—'}</p>
-                  </div>
-                </div>
-              )}
             </>
           ) : (
             <p className="text-gray-500 text-center mt-10">No course selected</p>
