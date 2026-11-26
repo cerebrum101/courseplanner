@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-11-26T11:18:09.287Z",
+  "source": "https://registrar.nu.edu.kz/my-registrar/public-course-catalog/json",
+  "sourceSemester": "latest (all-semester catalog)",
+  "availabilityTerm": "Spring 2027",
+  "courseCount": 2172,
+  "catalogCourseCount": 3889,
+  "levelsIncluded": [
+    "Undergraduate"
+  ],
+  "levels": {
+    "Undergraduate": 2137,
+    "Master": 1174,
+    "PhD": 437,
+    "Zero Year of Graduate Programs": 10,
+    "Doctor of Medicine": 94,
+    "Nazarbayev University Foundation Year Program": 36,
+    "Non-Degree": 1
+  },
+  "spring2027Count": 166,
+  "unresolvedRequirementRefs": 0,
+  "notes": [
+    "aliases[] lists every cross-listed code; courseCode is the first alias.",
+    "*Parsed fields keep exact AND/OR structure, grades and non-course rules.",
+    "PREREQNEW/COREQNEW/ANTIREQNEW are legacy %CODE% strings for the graph-edge code.",
+    "Requirement history: snapshots are versioned by generatedAt from this run on."
+  ],
+  "legacyCourseCount": 35,
+  "recentCourseCount": 1032,
+  "recentFrom": "Fall 2024"
+}
