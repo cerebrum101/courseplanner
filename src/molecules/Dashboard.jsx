@@ -3,12 +3,12 @@ import courseDataJSON from '../data/courseData.json';
 import { findSuggestedCourses } from '../utils/findSuggestedCourses';
 import '../styles/index.css';
 
-function Card({ code, name, credits, isAdded, toggleButton }) {
+function Card({ code, name, aliases, credits, isAdded, toggleButton }) {
   return (
     <div className="flex flex-col p-3 mb-2 bg-white dark:bg-gray-800 rounded-lg shadow border border-gray-200 dark:border-gray-700">
       <div className="flex justify-between items-start">
         <div>
-          <h3 className="font-bold text-sm text-gray-900 dark:text-gray-100">{code}</h3>
+          <h3 className="font-bold text-sm text-gray-900 dark:text-gray-100">{aliases && aliases.length > 1 ? aliases.join(' / ') : code}</h3>
           <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{name}</p>
         </div>
         <span className="text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded">
@@ -29,12 +29,12 @@ function Card({ code, name, credits, isAdded, toggleButton }) {
   );
 }
 
-export default function Dashboard({ addedCardsCodes, setAddedCardsCodes, showOnlyFall2026, setShowOnlyFall2026, isOpen, setIsOpen }) {
+export default function Dashboard({ addedCardsCodes, setAddedCardsCodes, showOnlySpring2027, setShowOnlySpring2027, isOpen, setIsOpen }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [showSuggestedOnly, setShowSuggestedOnly] = useState(false);
 
   function handleButtonClick() { setIsOpen(!isOpen); }
-  function handleToggleFall2026() { setShowOnlyFall2026(!showOnlyFall2026); }
+  function handleToggleSpring2027() { setShowOnlySpring2027(!showOnlySpring2027); }
   function toggleSuggestedFilter() { setShowSuggestedOnly((prev) => !prev); setSearchTerm(''); }
 
   function handleToggleCard(code) {
@@ -46,26 +46,29 @@ export default function Dashboard({ addedCardsCodes, setAddedCardsCodes, showOnl
   }
 
   const suggestedCourses = useMemo(() => {
-    let courses = findSuggestedCourses(courseDataJSON.coursesData, addedCardsCodes);
-    if (showOnlyFall2026) courses = courses.filter((c) => c.AVAILABLE_FALL_2026);
+    let courses = findSuggestedCourses(courseDataJSON.coursesData, addedCardsCodes).filter((c) => c.recent);
+    if (showOnlySpring2027) courses = courses.filter((c) => c.AVAILABLE_SPRING_2027);
     return courses;
-  }, [addedCardsCodes, showOnlyFall2026]);
+  }, [addedCardsCodes, showOnlySpring2027]);
 
   const suggestedCourseCodes = useMemo(() => new Set(suggestedCourses.map((c) => c.courseCode)), [suggestedCourses]);
 
   const filteredCards = courseDataJSON.coursesData
     .filter((course) => {
-      if (showOnlyFall2026 && !course.AVAILABLE_FALL_2026) return false;
+      if (!course.recent) return false;
+      if (showOnlySpring2027 && !course.AVAILABLE_SPRING_2027) return false;
       if (showSuggestedOnly) return suggestedCourseCodes.has(course.courseCode);
-      return course.courseCode.toLowerCase().includes(searchTerm.toLowerCase()) ||
-             course.courseName.toLowerCase().includes(searchTerm.toLowerCase());
+      const q = searchTerm.toLowerCase();
+      return course.aliases.some((a) => a.toLowerCase().includes(q)) ||
+             course.courseName.toLowerCase().includes(q);
     })
     .map((el) => (
       <Card
         key={el.courseCode}
         code={el.courseCode}
         name={el.courseName}
-        credits={el.credits}
+        aliases={el.aliases}
+        credits={el.creditsECTS}
         isAdded={addedCardsCodes.includes(el.courseCode)}
         toggleButton={handleToggleCard}
       />
@@ -90,9 +93,9 @@ export default function Dashboard({ addedCardsCodes, setAddedCardsCodes, showOnl
           <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">Course Dashboard</h2>
           
           <div className="flex items-center justify-between bg-gray-100 dark:bg-gray-800 p-2 rounded-lg">
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Fall 2026</span>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Spring 2027</span>
             <label className="relative inline-flex items-center cursor-pointer">
-              <input type="checkbox" className="sr-only peer" checked={showOnlyFall2026} onChange={handleToggleFall2026} />
+              <input type="checkbox" className="sr-only peer" checked={showOnlySpring2027} onChange={handleToggleSpring2027} />
               <div className="w-9 h-5 bg-gray-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
             </label>
           </div>

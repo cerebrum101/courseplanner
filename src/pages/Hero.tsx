@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
 
             <div className="w-full p-3 sm:p-4 bg-blue-900/30 border border-blue-700 rounded-lg text-sm text-center md:text-left">
               <span className="text-blue-400 font-semibold">New:</span>{' '}
-              <span className="text-gray-300">Fall 2026 courses available</span>
+              <span className="text-gray-300">Spring 2027 courses available</span>
             </div>
 
             <div className="pt-2 md:pt-4 w-full">

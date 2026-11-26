@@ -194,40 +194,75 @@ const parseRequirementString = (
     return { edges: groupEdges, nodes: groupNodes };
   };
 
-  // Parse the requirement string
+  // Split at top level by keyword, respecting parentheses.
+  const splitTopLevel = (str: string, keyword: string): string[] => {
+    const parts: string[] = [];
+    let depth = 0, cur = '';
+    const kw = ` ${keyword} `;
+    for (let i = 0; i < str.length; i++) {
+      const ch = str[i];
+      if (ch === '(') depth++;
+      if (ch === ')') depth = Math.max(0, depth - 1);
+      if (depth === 0 && str.startsWith(kw, i)) {
+        parts.push(cur.trim());
+        cur = '';
+        i += kw.length - 1;
+        continue;
+      }
+      cur += ch;
+    }
+    if (cur.trim()) parts.push(cur.trim());
+    return parts;
+  };
+
+  const stripOuterParens = (str: string): string => {
+    let s = str.trim();
+    while (s.startsWith('(') && s.endsWith(')')) {
+      let depth = 0, wraps = true;
+      for (let i = 0; i < s.length; i++) {
+        if (s[i] === '(') depth++;
+        if (s[i] === ')') depth--;
+        if (depth === 0 && i < s.length - 1) { wraps = false; break; }
+      }
+      if (!wraps) break;
+      s = s.slice(1, -1).trim();
+    }
+    return s;
+  };
+
+  // Parse the requirement string emitted by the data pipeline:
+  // alternatives joined by " OR "; items within an alternative joined by " AND ";
+  // a parenthesized item with " OR " inside is a cross-listed equivalent group.
   const parseString = (str: string, targetCourse: string): { edges: Edge[]; nodes: Node[] } => {
     let resultEdges: Edge[] = [];
     let resultNodes: Node[] = [];
 
-    // If the string contains 'OR' and no parentheses, treat as a flat OR group
-    if (str.includes('OR') && !str.includes('(')) {
-      const courses = extractCourseCodes(str);
-      const { edges: orEdges, nodes: orNodes } = processCourseGroup(courses, true, targetCourse);
-      return { edges: orEdges, nodes: orNodes };
-    }
+    const alternatives = splitTopLevel(str, 'OR');
+    // Flat single-code alternatives merge into one OR group for the graph.
+    const flatCodes: string[] = [];
+    const groups: { courses: string[]; isOrGroup: boolean }[] = [];
+    alternatives.forEach((alt) => {
+      const items = splitTopLevel(stripOuterParens(alt), 'AND');
+      items.forEach((item) => {
+        const inner = stripOuterParens(item);
+        const codes = extractCourseCodes(inner);
+        if (codes.length === 0) return;
+        if (codes.length === 1 && alternatives.length > 1) {
+          flatCodes.push(codes[0]);
+        } else {
+          groups.push({ courses: codes, isOrGroup: codes.length > 1 });
+        }
+      });
+    });
+    if (flatCodes.length > 1) groups.push({ courses: flatCodes, isOrGroup: true });
+    else groups.push(...flatCodes.map((c) => ({ courses: [c], isOrGroup: false })));
 
-    // Handle OR groups in parentheses
-    const orGroups = str.match(/\(([^()]+)\)/g) || [];
-    let remainingStr = str;
-
-    orGroups.forEach(group => {
-      const cleanGroup = group.slice(1, -1); // Remove parentheses
-      const courses = extractCourseCodes(cleanGroup);
-      const { edges: groupEdges, nodes: groupNodes } = processCourseGroup(courses, true, targetCourse);
-      resultEdges = [...resultEdges, ...groupEdges];
-      resultNodes = [...resultNodes, ...groupNodes];
-      remainingStr = remainingStr.replace(group, '');
+    groups.forEach(({ courses, isOrGroup }) => {
+      const { edges, nodes } = processCourseGroup(courses, isOrGroup, targetCourse);
+      resultEdges = [...resultEdges, ...edges];
+      resultNodes = [...resultNodes, ...nodes];
     });
 
-    // Handle remaining courses (AND groups)
-    const remainingCourses = extractCourseCodes(remainingStr);
-    if (remainingCourses.length > 0) {
-      const { edges: andEdges, nodes: andNodes } = processCourseGroup(remainingCourses, false, targetCourse);
-      resultEdges = [...resultEdges, ...andEdges];
-      resultNodes = [...resultNodes, ...andNodes];
-    }
-
-    // Deduplicate edges by ID before returning
     const dedupedEdges = Array.from(new Map(resultEdges.map(e => [e.id, e])).values());
     return { edges: dedupedEdges, nodes: resultNodes };
   };
@@ -277,3 +312,4 @@ export const createAntirequisiteEdges = (
   }
   return { edges: [], nodes: [] };
 };
+

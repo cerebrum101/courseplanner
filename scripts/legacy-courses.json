@@ -1,0 +1,1453 @@
+[
+ {
+  "courseCode": "NUSM 411",
+  "aliases": [
+   "NUSM 411"
+  ],
+  "courseName": "Basics of Physical Examination",
+  "courseId": "8084",
+  "school": "School of Medicine",
+  "schoolAbbr": "SoM",
+  "department": "Medical Sciences",
+  "level": "Undergraduate",
+  "credits": "0",
+  "creditsECTS": "0",
+  "breadth": "n/a",
+  "description": "This course is dedicated to teaching students to perform a physical examination.",
+  "offeredTerms": [
+   "Spring 2025"
+  ],
+  "lastTaughtTerm": "Spring 2025",
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "NUSM 310 Capstone Project (7138) (C- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%NUSM 310%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "GEOL 203",
+  "aliases": [
+   "GEOL 203"
+  ],
+  "courseName": "Geomorphology",
+  "courseId": "6997",
+  "school": "School of Mining and Geosciences",
+  "schoolAbbr": "SMG",
+  "department": "Geosciences",
+  "level": "Undergraduate",
+  "credits": "3",
+  "creditsECTS": "6",
+  "breadth": "n/a",
+  "description": "The main aim of the course is understanding of landforms and the processes that produce and modify them. The course considers some of the practical aspects of reading a geomorphological, map, recognized the landforms and understanding the natural processes.",
+  "offeredTerms": [
+   "Fall 2024"
+  ],
+  "lastTaughtTerm": "Fall 2024",
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "GEOL 101 Fundamentals of Geology (4774) (C- and above) OR GEOL 102 Fundamentals of Geology (4772) (C- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%GEOL 101% OR %GEOL 102%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "MINE 308",
+  "aliases": [
+   "MINE 308"
+  ],
+  "courseName": "Mine Planning ",
+  "courseId": "6149",
+  "school": "School of Mining and Geosciences",
+  "schoolAbbr": "SMG",
+  "department": "Mining Engineering",
+  "level": "Undergraduate",
+  "credits": "3",
+  "creditsECTS": "6",
+  "breadth": "n/a",
+  "description": "This course is dealing with identifying the mine planning process, mine scheduling and production planning, and analysis of cut-off grades. This course will end up with mine optimization.",
+  "offeredTerms": [
+   "Fall 2024"
+  ],
+  "lastTaughtTerm": "Fall 2024",
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "KAZ 212",
+  "aliases": [
+   "KAZ 212"
+  ],
+  "courseName": "Academic Writing in Kazakh",
+  "courseId": "703",
+  "school": "School of Sciences and Humanities",
+  "schoolAbbr": "SSH",
+  "department": "Kazakh Language and Turkic Studies",
+  "level": "Undergraduate",
+  "credits": "3",
+  "creditsECTS": "6",
+  "breadth": "n/a",
+  "description": "This course allows students to improve their academic writing in Kazakh language. The students will learn how to analyze popular scientific texts and comprehensively construct essays with academic content.",
+  "offeredTerms": [
+   "Spring 2025"
+  ],
+  "lastTaughtTerm": "Spring 2025",
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "KAZ 202 Academic Kazakh II (4562) (C- and above) OR KLL \"[C1.1] Advanced\"",
+  "rawCoreq": "",
+  "rawAntireq": "KAZ 211 Academic Speaking in Kazakh (702) (C- and above)",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%KAZ 202%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "%KAZ 211%",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "ANT 222",
+  "aliases": [
+   "ANT 222",
+   "SOC 222"
+  ],
+  "courseName": "Approaches to Global Development",
+  "courseId": "158",
+  "school": "School of Sciences and Humanities",
+  "schoolAbbr": "SSH",
+  "department": "Sociology and Anthropology, Sociology and Anthropology",
+  "level": "Undergraduate",
+  "credits": "3",
+  "creditsECTS": "6",
+  "breadth": "n/a",
+  "description": "In this seminar, we will explore the historical trajectory of global development as a set of ideas and practices.  Using both anthropological and sociological approaches we will examine the shortcoming and failures of development as we know it today and think about new ways in which the problems of development can be approached and tackled.",
+  "offeredTerms": [
+   "Spring 2025"
+  ],
+  "lastTaughtTerm": "Spring 2025",
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "ANT 222/SOC 222 Approaches to Global Development (158) (C- and above)",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "%ANT 222% / %SOC 222%",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "CSCI 325",
+  "aliases": [
+   "CSCI 325"
+  ],
+  "courseName": "Introduction to Parallel Systems and Graphics Processing Unit Programming ",
+  "courseId": "1915",
+  "school": "School of Engineering and Digital Sciences",
+  "schoolAbbr": "SEDS",
+  "department": "Computer Science",
+  "level": "Undergraduate",
+  "credits": "3",
+  "creditsECTS": "6",
+  "breadth": "n/a",
+  "description": "This course will provide an introduction to how to implement a large scale computations and data processing using parallel processing and distributed system organization. The areas that will be covered are: parallel computer architecture, shared-memory and message-passing approach, OpenMP, MPI, parallel computing applications, performance issues, GPU programming, CUDA, OpenCL , Clouds.",
+  "offeredTerms": [
+   "Spring 2025"
+  ],
+  "lastTaughtTerm": "Spring 2025",
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "CSCI 332 Operating Systems (490) (C- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%CSCI 332%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "MINE 310",
+  "aliases": [
+   "MINE 310"
+  ],
+  "courseName": "Rock Breakage",
+  "courseId": "6148",
+  "school": "School of Mining and Geosciences",
+  "schoolAbbr": "SMG",
+  "department": "Mining Engineering",
+  "level": "Undergraduate",
+  "credits": "3",
+  "creditsECTS": "6",
+  "breadth": "n/a",
+  "description": "The course covers the principal methods of rock breakage used in mining including mechanical mining, drilling and blasting. Mechanical mining includes the rock cutting principles, cutting with picks and discs, effect of tool wear, impact breakage and ripping, assessment of rock cuttability and boreability, also, includes machine rock interaction and influence of parameters on mechanical rock breakage. Drilling includes the methods of drilling used in mining application. Blasting includes the chemistry of explosives and mechanics of explosive-rock interaction, selection of explosives, explosive charging techniques; and initiation and delay systems, blast design principles for surface and underground mines.",
+  "offeredTerms": [
+   "Spring 2025"
+  ],
+  "lastTaughtTerm": "Spring 2025",
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "MINE 302 Geomechanics (5878) (D and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%MINE 302%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "BIOL 471",
+  "aliases": [
+   "BIOL 471"
+  ],
+  "courseName": "Light and Electron microscopy concepts and techniques",
+  "courseId": "96",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "BIOL 110 Modern Biology I (1070) (C and above) AND BIOL 120 Modern Biology II (1195) (C and above) AND CHEM 101 General Chemistry I (113) (C and above) AND PHYS 161 Physics I for Scientists and Engineers with Laboratory (116) (C and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%BIOL 110% AND %BIOL 120% AND %CHEM 101% AND %PHYS 161%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "BIOL 471L",
+  "aliases": [
+   "BIOL 471L"
+  ],
+  "courseName": "Light and Electron Microscopy Concepts and Techniques-Lab",
+  "courseId": "97",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "2",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "BIOL 471 Light and Electron microscopy concepts and techniques (4686) (C and above)",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "%BIOL 471%",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "ECON 446",
+  "aliases": [
+   "ECON 446"
+  ],
+  "courseName": "Empirical Finance",
+  "courseId": "155",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "ECON 211 Economic Statistics (2280) (C- and above) OR MATH 322 Mathematical Statistics (1165) (C- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%ECON 211% OR %MATH 322%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "FIN 201",
+  "aliases": [
+   "FIN 201"
+  ],
+  "courseName": "Principles of Finance",
+  "courseId": "4",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "BUS 101 Core Course in Business (5889) (B- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%BUS 101%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "GEOL 101",
+  "aliases": [
+   "GEOL 101"
+  ],
+  "courseName": "Fundamentals of Geology",
+  "courseId": "38",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "MAE 454",
+  "aliases": [
+   "MAE 454"
+  ],
+  "courseName": "Aerodynamics",
+  "courseId": "435",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "MAE 300 Fluid Mechanics I (5926) (D and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%MAE 300%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "NUR 322",
+  "aliases": [
+   "NUR 322"
+  ],
+  "courseName": "Nursing Clinical Informatics",
+  "courseId": "31",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "4",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "NUR 402",
+  "aliases": [
+   "NUR 402"
+  ],
+  "courseName": "Principles of Healthcare Administration",
+  "courseId": "32",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "8",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "NUR 405",
+  "aliases": [
+   "NUR 405"
+  ],
+  "courseName": "Issues and Trends in Nursing",
+  "courseId": "33",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "8",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "NUR 406.2",
+  "aliases": [
+   "NUR 406.2"
+  ],
+  "courseName": "Medical-Surgical Nursing: Complex Management",
+  "courseId": "34",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "8",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "NUR 407",
+  "aliases": [
+   "NUR 407"
+  ],
+  "courseName": "Capstone: Clinical and EBP Quality Improvement Research",
+  "courseId": "35",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "8",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "PER 102",
+  "aliases": [
+   "PER 102"
+  ],
+  "courseName": "Beginning Persian II",
+  "courseId": "228",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "8",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "PER 101 Beginning Persian I (4474) (C- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%PER 101%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "PLS 412",
+  "aliases": [
+   "PLS 412"
+  ],
+  "courseName": "Scientific Research in International Relations",
+  "courseId": "306",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "PLS 150 Introduction to International Relations (511) (C- and above) AND PLS 210 Political Science Research Methods (129) (C- and above) AND PLS 211 Quantitative Methods (221) (C- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%PLS 150% AND %PLS 210% AND %PLS 211%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "PLS 436",
+  "aliases": [
+   "PLS 436"
+  ],
+  "courseName": "State capacity and state- building",
+  "courseId": "309",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "PLS 140 Introduction to Comparative Politics (223) (C- and above) AND PLS 210 Political Science Research Methods (129) (C- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%PLS 140% AND %PLS 210%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "SOC 416",
+  "aliases": [
+   "SOC 416"
+  ],
+  "courseName": "Sociology of Punishment",
+  "courseId": "342",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "SOC 301 Classical Sociological Theory (683) (C- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%SOC 301%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "T - 1290131",
+  "aliases": [
+   "T - 1290131"
+  ],
+  "courseName": "Career Design I",
+  "courseId": "2",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "2",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "SMG 100",
+  "aliases": [
+   "SMG 100"
+  ],
+  "courseName": "Introduction to Natural Resources Extraction",
+  "courseId": "75",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "PLS 320",
+  "aliases": [
+   "PLS 320"
+  ],
+  "courseName": "Feminist Political Theory",
+  "courseId": "272",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "PLS 120 Introduction to Political Theory (512) (C- and above) AND PLS 210 Political Science Research Methods (129) (C- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%PLS 120% AND %PLS 210%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "NUSM 303",
+  "aliases": [
+   "NUSM 303"
+  ],
+  "courseName": "Introduction to Anatomy and Histology",
+  "courseId": "21",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "BIOL 120 Modern Biology II (1195) (C and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%BIOL 120%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "NUSM 302",
+  "aliases": [
+   "NUSM 302"
+  ],
+  "courseName": "Introduction to Statistics for Evidence-Based Practice",
+  "courseId": "20",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "MATH 161 Calculus I (118) (C- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%MATH 161%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "NUSM 301",
+  "aliases": [
+   "NUSM 301"
+  ],
+  "courseName": "Introduction to Immunology, Microbiology and Genetics",
+  "courseId": "19",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "BIOL 120 Modern Biology II (1195) (C and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%BIOL 120%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "NUR 413C",
+  "aliases": [
+   "NUR 413C"
+  ],
+  "courseName": "Medical Surgical Nursing 3 - Management of the Complex and Critically Ill Patient and Clinical",
+  "courseId": "47",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "14",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "NUR 412",
+  "aliases": [
+   "NUR 412"
+  ],
+  "courseName": "Geriatric Nursing: Nursing Care of the Older Adult",
+  "courseId": "46",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "4",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "NUR 411C",
+  "aliases": [
+   "NUR 411C"
+  ],
+  "courseName": "Community and Home Health Nursing and Clinical",
+  "courseId": "45",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "8",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "LING 372",
+  "aliases": [
+   "LING 372"
+  ],
+  "courseName": "Discourse Analysis",
+  "courseId": "206",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "Subject \"LLL\" BETWEEN 100 and 199 OR Subject \"WLL\" BETWEEN 100 and 199 OR WLL 171/ANT 175 Introduction to Linguistic Anthropology (4417) (C- and above) OR Subject \"LING\" BETWEEN 100 and 199 OR Subject \"LING\" BETWEEN 100 and 199",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%BETWEEN 100% OR %BETWEEN 100% OR %WLL 171% / %ANT 175% OR %BETWEEN 100% OR %BETWEEN 100%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "ECON 335",
+  "aliases": [
+   "ECON 335"
+  ],
+  "courseName": "Economics of Information",
+  "courseId": "144",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "ECON 201 Intermediate Microeconomics (133) (C- and above)",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "%ECON 201%",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "ANT 386",
+  "aliases": [
+   "ANT 386",
+   "SOC 386"
+  ],
+  "courseName": "Social Challenges of Climate Change",
+  "courseId": "320",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ },
+ {
+  "courseCode": "ANT 333",
+  "aliases": [
+   "ANT 333"
+  ],
+  "courseName": "Anthropology of Space",
+  "courseId": "299",
+  "school": null,
+  "schoolAbbr": null,
+  "department": null,
+  "level": "Undergraduate",
+  "credits": null,
+  "creditsECTS": "6",
+  "breadth": null,
+  "description": "",
+  "offeredTerms": [],
+  "lastTaughtTerm": null,
+  "AVAILABLE_SPRING_2027": false,
+  "rawPrereq": "",
+  "rawCoreq": "",
+  "rawAntireq": "",
+  "prerequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "corequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "antirequisitesParsed": {
+   "raw": "",
+   "alternatives": []
+  },
+  "PREREQNEW": "",
+  "COREQNEW": "",
+  "ANTIREQNEW": "",
+  "ISPREREQTO": [],
+  "ISCOREQTO": [],
+  "ISANTIREQTO": [],
+  "legacy": true
+ }
+]

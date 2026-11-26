@@ -8,8 +8,41 @@ export type CourseNode = Node & {
   };
 };
 
+export interface RequirementItem {
+  raw: string;
+  codes: string[];
+  grade: string | null;
+  notes: { type: string; text?: string; subject?: string; from?: string; to?: string }[];
+}
+
+export interface ParsedRequirement {
+  raw: string;
+  alternatives: RequirementItem[][];
+}
+
 export interface Course {
   COURSEID?: string;
+  courseId?: string;
+  aliases?: string[];
+  school?: string;
+  schoolAbbr?: string;
+  level?: string;
+  creditsECTS?: string;
+  description?: string;
+  offeredTerms?: string[];
+  lastTaughtTerm?: string;
+  AVAILABLE_SPRING_2027?: boolean;
+  legacy?: boolean;
+  recent?: boolean;
+  rawPrereq?: string;
+  rawCoreq?: string;
+  rawAntireq?: string;
+  prerequisitesParsed?: ParsedRequirement;
+  corequisitesParsed?: ParsedRequirement;
+  antirequisitesParsed?: ParsedRequirement;
+  ISPREREQTO?: string[];
+  ISCOREQTO?: string[];
+  ISANTIREQTO?: string[];
   CRUS?: string;
   LASTTAUGHT?: string;
   SCHOOL?: string;
@@ -31,8 +64,8 @@ export interface Course {
   ANTIREQNEW?: string;
   courseCode: string;
   courseName: string;
-  credits: number;
-  prerequisites: (string | { type: string; courses: string[] })[];
-  corequisites: (string | { type: string; courses: string[] })[];
-  antirequisites: (string | { type: string; courses: string[] })[];
+  credits: number | string;
+  prerequisites?: (string | { type: string; courses: string[] })[];
+  corequisites?: (string | { type: string; courses: string[] })[];
+  antirequisites?: (string | { type: string; courses: string[] })[];
 } 

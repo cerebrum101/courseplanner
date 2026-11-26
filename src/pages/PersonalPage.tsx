@@ -25,6 +25,9 @@ import { useCourseEdges } from '../hooks/useCourseEdges';
 import { useNodeClick } from '../hooks/useNodeClick';
 import { useReverseDependencyMap } from '../hooks/useReverseDependencyMap';
 import { saveFlow, loadFlow, resetFlow } from '../utils/saveCourses';
+import { getAliasMap } from '../utils/aliases';
+// @ts-ignore - plain .mjs module, no types
+import { migrateFlowCodes } from '../utils/migrateFlow.mjs';
 
 const nodeTypes = {
   Course: CourseNodes,
@@ -42,8 +45,8 @@ export default function UserPlanPage() {
   const [currCourse, setCurrCourse] = useState<string>('');
   const [colorMode, setColorMode] = useState<ColorMode>('light');
   
-  // ONLY Fall 2026
-  const [showOnlyFall2026, setShowOnlyFall2026] = useState(false);
+  // ONLY Spring 2027
+  const [showOnlySpring2027, setShowOnlySpring2027] = useState(false);
 
   // LIFTED STATE: Parent controls BOTH dashboards to slide UI correctly
   const [isLeftOpen, setIsLeftOpen] = useState(false);
@@ -95,7 +98,11 @@ export default function UserPlanPage() {
 
   const handleSaveClick = () => { saveFlow(nodes, edges); };
   const handleRestoreClick = () => {
-    const savedFlow = loadFlow();
+    // Older saves use codes that were later merged or renamed (e.g. "ANT 375/HST 375"): map them to current codes.
+    const savedFlow = migrateFlowCodes(loadFlow(), getAliasMap());
+    if (savedFlow.dropped && savedFlow.dropped.length > 0) {
+      window.alert(`Not in the current catalog, removed from your saved plan: ${savedFlow.dropped.join(', ')}`);
+    }
     if (savedFlow && savedFlow.nodes.length > 0) {
       setAddedCardsCodes(savedFlow.nodes.map((node: any) => node.id));
       setNodes(savedFlow.nodes as any[]);
@@ -155,8 +162,8 @@ export default function UserPlanPage() {
       <Dashboard
         addedCardsCodes={addedCardsCodes}
         setAddedCardsCodes={setAddedCardsCodes}
-        showOnlyFall2026={showOnlyFall2026}
-        setShowOnlyFall2026={setShowOnlyFall2026}
+        showOnlySpring2027={showOnlySpring2027}
+        setShowOnlySpring2027={setShowOnlySpring2027}
         isOpen={isRightOpen}
         setIsOpen={setIsRightOpen}
       />
