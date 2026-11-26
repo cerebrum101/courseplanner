@@ -114,3 +114,7 @@ Run this script whenever:
 
 It only takes a few seconds to regenerate!
 
+
+## Course data pipeline (Spring 2027)
+
+`npm run data` runs `scripts/build-course-data.mjs`. It fetches the registrar's public course catalog, normalizes course codes (cross-listed codes such as `ANT 375/HST 375` become one course with `aliases`), parses prerequisites, corequisites and antirequisites into structured AND/OR groups, and writes `src/data/courseData.json` and `courseData.meta.json`. Undergraduate courses only; pass `--all-levels` to keep the rest. `npm test` runs its tests. The older preprocess and update scripts in this folder are kept for reference and are not needed any more.
